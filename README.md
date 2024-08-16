@@ -7,7 +7,7 @@ Una aplicación multiplataforma que permite resolver formulas de física de una 
 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/Yuzu02/fisicapp
+git clone https://github.com/Yuzu02/FisicApp
 ```
 
 2. Navegar a la carpeta del proyecto
