@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './screens/home_page.dart';
+import 'Vistas/home_pagina.dart';
 
 class FormulasApp extends StatelessWidget {
   const FormulasApp({super.key});
@@ -12,7 +12,7 @@ class FormulasApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const HomePage(),
+      home: const HomePagina(),
     );
   }
 }

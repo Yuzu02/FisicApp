@@ -1,0 +1,183 @@
+import 'package:fisicapp/Modelos/formula.dart';
+import 'package:fisicapp/Utilidades/calculadora_formula.dart';
+import 'package:flutter/material.dart';
+
+class FormularioFormula extends StatefulWidget {
+  final GrupoFormulas formulaGroup;
+
+  const FormularioFormula({super.key, required this.formulaGroup});
+
+  @override
+  FormularioFormulaEstado createState() => FormularioFormulaEstado();
+}
+
+class FormularioFormulaEstado extends State<FormularioFormula> {
+  late Formula _selectedFormula;
+  final Map<String, TextEditingController> _controllers = {};
+  String _result = '';
+  final CalculadoraFormula _calculator =
+      CalculadoraFormula(); // Create an instance of CalculadoraFormula
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedFormula = widget.formulaGroup.formulas.first;
+    _initControllers();
+  }
+
+  void _initControllers() {
+    _controllers.clear();
+    for (var variable in _selectedFormula.variables) {
+      _controllers[variable] = TextEditingController();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const Text(
+          'Selecciona la fórmula',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 10),
+        DropdownButtonFormField<Formula>(
+          value: _selectedFormula,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            filled: true,
+            fillColor: Colors.grey[200],
+          ),
+          items: widget.formulaGroup.formulas.map((Formula formula) {
+            return DropdownMenuItem<Formula>(
+              value: formula,
+              child: Text('Calcular ${formula.nombre}'),
+            );
+          }).toList(),
+          onChanged: (Formula? newValue) {
+            if (newValue != null) {
+              setState(() {
+                _selectedFormula = newValue;
+                _initControllers();
+                _result = '';
+              });
+            }
+          },
+        ),
+        const SizedBox(height: 20),
+        Card(
+          elevation: 4,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              _selectedFormula.etiqueta,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+        ..._buildInputFields(),
+        const SizedBox(height: 20),
+        ElevatedButton(
+          onPressed: _calculate,
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+          child: const Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Text(
+              'Calcular',
+              style: TextStyle(fontSize: 18),
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+        if (_result.isNotEmpty)
+          Card(
+            elevation: 4,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            color: Colors.green[100],
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                _result,
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  List<Widget> _buildInputFields() {
+    return _selectedFormula.variables.map((variable) {
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 16.0),
+        child: TextFormField(
+          controller: _controllers[variable],
+          decoration: InputDecoration(
+            labelText: '$variable (${_selectedFormula.unidades[variable]})',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            filled: true,
+            fillColor: Colors.grey[200],
+          ),
+          keyboardType: TextInputType.number,
+        ),
+      );
+    }).toList();
+  }
+
+  void _calculate() {
+    Map<String, double> values = {};
+    bool allFilled = true;
+
+    for (var variable in _selectedFormula.variables) {
+      if (_controllers[variable]!.text.isNotEmpty) {
+        values[variable] = double.parse(_controllers[variable]!.text);
+      } else {
+        allFilled = false;
+        break;
+      }
+    }
+
+    if (allFilled) {
+      try {
+        double result = _calculator.evaluate(_selectedFormula.expresion,
+            values); // Use the new class for evaluation
+        setState(() {
+          _result =
+              '${_selectedFormula.resultado} = ${result.toStringAsFixed(2)} ${_selectedFormula.unidades[_selectedFormula.resultado]}';
+        });
+      } catch (e) {
+        setState(() {
+          _result = 'Error al evaluar la fórmula: ${e.toString()}';
+        });
+      }
+    } else {
+      setState(() {
+        _result = 'Por favor, llena todos los campos';
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    for (var controller in _controllers.values) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
+}
