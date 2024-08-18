@@ -1,5 +1,22 @@
+import 'package:fisicapp/Formulas/instrucciones.dart';
 import 'package:fisicapp/Modelos/formula.dart';
 import 'package:fisicapp/Formulas/constantes.dart';
+
+// * Sección de Fórmulas
+
+// ? Las secciones de fórmulas son las categorías en las que se agrupan las fórmulas
+
+// ? Cada sección de fórmulas tiene un nombre y una lista de grupos de fórmulas
+
+// ? Cada grupo de fórmulas tiene un nombre y una lista de fórmulas ( Todos los despejes posibles de dicha fórmula )
+
+// ? Cada fórmula tiene un nombre, una etiqueta ( La fórmula en LaTeX ), una expresión ( La fórmula en formato de expresión ), un resultado ( La variable que se despeja ), una lista de variables ( Las variables de la fórmula ), una lista de unidades ( Las unidades de las variables de la fórmula ) y una lista de constantes opcionales ( Las constantes que se usan en la fórmula { Si es que hay alguna } )
+
+// ! Antes de cualquier cosa que se cambie o se agregue, se debe tener en cuenta que las fórmulas deben ser correctas y estar bien escritas y que antes de tocar este archivo favor revisar todos los modelos definidos en la carpeta Modelos ( Para saber en base a que se están definiendo las fórmulas , los grupos y las secciones ) luego pasar por constantes.dart y unidades.dart para saber que constantes y unidades se pueden usar en las fórmulas ( Agregar constantes y unidades si es necesario ) y por último revisar la UI para saber como se están mostrando las fórmulas en la aplicación
+
+// Todo : Antes de agregar un nuevo grupo de fórmulas, se debe agregar un nuevo objeto de tipo GrupoFormulas a la lista de grupos de la sección de fórmulas a la que pertenece dicho grupo de fórmulas ( Revisar bien en que sección se debe agregar el grupo de fórmulas )
+
+// Todo : Luego de agregar un nuevo grupo de formulas , revisar los modelos de instrucciones en Modelos/instrucciones_formula.dart y agregar las instrucciones correspondientes al nuevo grupo de fórmulas siguiendo los pasos en el archivo de instrucciones_formula.dart y luego yendo a Formulas/instrucciones.dart y agregando las instrucciones al objeto instrucciones en instrucciones.dart para luego volver a este archivo y agregar las instrucciones al grupo de fórmulas correspondiente
 
 // Sección de Newton
 final SeccionFormulas seccionNewton = SeccionFormulas(
@@ -7,6 +24,7 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
   groups: [
     GrupoFormulas(
       nombre: 'Segunda Ley de Newton',
+      instrucciones: instrucciones.segundaLeyNewton,
       formulas: [
         Formula(
           nombre: 'Fuerza',
@@ -40,6 +58,35 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
         ),
       ],
     ),
+    GrupoFormulas(
+        nombre: "Inercia",
+        instrucciones: instrucciones.inercia,
+        formulas: [
+          Formula(
+            nombre: 'Inercia',
+            etiqueta: r'I = m \cdot r^2',
+            expresion: 'm * (r * r)',
+            resultado: 'I',
+            variables: ['m', 'r'],
+            unidades: {'I': 'kg*m^2', 'm': 'kg', 'r': 'm'},
+          ),
+          Formula(
+            nombre: 'Masa',
+            etiqueta: r'm = \frac{I}{r^2}',
+            expresion: 'I / (r * r)',
+            resultado: 'm',
+            variables: ['I', 'r'],
+            unidades: {'m': 'kg', 'I': 'kg*m^2', 'r': 'm'},
+          ),
+          Formula(
+            nombre: 'Radio',
+            etiqueta: r'r = \sqrt{\frac{I}{m}}',
+            expresion: 'sqrt(I / m)',
+            resultado: 'r',
+            variables: ['I', 'm'],
+            unidades: {'r': 'm', 'I': 'kg*m^2', 'm': 'kg'},
+          ),
+        ]),
   ],
 );
 
@@ -49,6 +96,7 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
   groups: [
     GrupoFormulas(
       nombre: 'Ley de Ohm',
+      instrucciones: instrucciones.leyDeOhm,
       formulas: [
         Formula(
           nombre: 'Voltaje',
@@ -84,12 +132,14 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
     ),
     GrupoFormulas(
       nombre: 'Ley de Coulomb',
+      instrucciones: instrucciones.leyDeCoulomb,
       formulas: [
         Formula(
           nombre: 'Fuerza',
           etiqueta:
               r'\vec{F} = k \cdot \frac{q_1 \cdot q_2}{r^2}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
-          expresion: 'k * (q1 * q2) / (r * r)',
+          expresion:
+              'k * (q1 * q2) / (r * r)', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'F',
           variables: ['k', 'q1', 'q2', 'r'],
           unidades: {
@@ -108,7 +158,8 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
           nombre: 'Distancia',
           etiqueta:
               r'r = \sqrt{\frac{k \cdot q_1 \cdot q_2}{\vec{F}}}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
-          expresion: '((k * (q1 * q2)) / F)*(0.5)',
+          expresion:
+              '((k * (q1 * q2)) / F)*(0.5)', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'r',
           variables: ['k', 'q1', 'q2', 'F'],
           unidades: {
@@ -127,7 +178,8 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
           nombre: 'Carga 1',
           etiqueta:
               r'q_1 = \frac{\vec{F} \cdot r^2}{k \cdot q_2}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
-          expresion: 'F * (r * r) / (k * q2)',
+          expresion:
+              'F * (r * r) / (k * q2)', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'q1',
           variables: ['F', 'r', 'k', 'q2'],
           unidades: {
@@ -153,6 +205,7 @@ final SeccionFormulas seccionGeneral = SeccionFormulas(
   groups: [
     GrupoFormulas(
       nombre: 'Velocidad',
+      instrucciones: instrucciones.velocidad,
       formulas: [
         Formula(
           nombre: 'Velocidad',
@@ -189,8 +242,10 @@ final SeccionFormulas seccionGeneral = SeccionFormulas(
   ],
 );
 
+//  Lista de secciones de fórmulas
 final List<SeccionFormulas> formulasSections = <SeccionFormulas>[
   seccionNewton,
   seccionFisicaElectrica,
   seccionGeneral,
+  // ? Si se quiere agregar una nueva sección de fórmulas, se debe agregar un nuevo objeto de tipo SeccionFormulas a esta lista
 ];

@@ -1,10 +1,6 @@
-class Constante {
-  final String nombre;
-  final String simbolo;
-  final double valor;
+import 'package:fisicapp/Modelos/constantes.dart';
 
-  Constante(this.nombre, this.simbolo, this.valor);
-}
+// ? Aca se definen las constantes que se usaran en las formulas como constantes con sus nombres, símbolos y valores
 
 class Constantes {
   static final Constante constanteCoulomb = Constante(
@@ -24,4 +20,14 @@ class Constantes {
     'π',
     3.14159265359,
   );
+
+  // ? Para agregar una nueva constante,  se debe definir una constante de tipo Constante con el nombre, el símbolo y el valor de la constante que se desea agregar ( Encima de este comentario )
+
+  // * Ejemplo:
+
+  // static final Constante ejemplo = Constante(
+  //   'Ejemplo',
+  //   'Ej',
+  //   0,
+  // );
 }

@@ -1,4 +1,9 @@
-import 'package:fisicapp/widgets/formulario_formula.dart';
+// lib/Vistas/formula_detallada_pagina.dart
+
+import 'package:fisicapp/Data/paginas.dart';
+import 'package:fisicapp/Modelos/Widget/formulario_formula_props.dart';
+import 'package:fisicapp/Widgets/formulario_formula.dart';
+import 'package:fisicapp/Widgets/instrucciones_formula.dart';
 import 'package:flutter/material.dart';
 import 'package:fisicapp/Modelos/formula.dart';
 
@@ -9,10 +14,20 @@ class FormulaDetalladaPagina extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FormularioFormulaProps props = FormularioFormulaProps(
+      formulaGroup: formulaGroup,
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(formulaGroup.nombre),
         elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () => _showInstructions(context),
+          ),
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -33,7 +48,7 @@ class FormulaDetalladaPagina extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: FormularioFormula(formulaGroup: formulaGroup),
+                  child: FormularioFormula(props: props),
                 ),
               ),
             ),
@@ -41,5 +56,35 @@ class FormulaDetalladaPagina extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _showInstructions(BuildContext context) {
+    if (formulaGroup.instrucciones.isNotEmpty) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text(HomePaginaTexto.instruccionesTitulo,
+                textAlign: TextAlign.center),
+            content:
+                InstruccionesWidget(instrucciones: formulaGroup.instrucciones),
+            actions: [
+              TextButton(
+                child: const Text('Cerrar'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content:
+                Text(FormulaDetalladaPaginaTexto.instruccionesNoDisponibles)),
+      );
+    }
   }
 }
