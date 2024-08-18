@@ -87,9 +87,9 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
         Formula(
           nombre: 'Fuerza',
           etiqueta:
-              'F = k * (q1 * q2) / r^2', // ?  La etiqueta es la formula que se mostrara en la UI
+              'F = k * (q1 * q2) / r²', // ?  La etiqueta es la formula que se mostrara en la UI
           expresion:
-              'k * (q1 * q2) / r^2', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
+              'k * (q1 * q2) / (r * r)', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'F',
           variables: ['k', 'q1', 'q2', 'r'],
           unidades: {
@@ -118,11 +118,12 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
             'q2': 'C',
             'F': 'N'
           },
+          constantes: {'k': 8.99e9},
         ),
         Formula(
           nombre: 'Carga 1',
           etiqueta:
-              'q1 = F * r^2 / (k * q2)', // ?  La etiqueta es la formula que se mostrara en la UI
+              'q1 = F * r² / (k * q2)', // ?  La etiqueta es la formula que se mostrara en la UI
           expresion:
               'F * r^2 / (k * q2)', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'q1',
@@ -134,6 +135,7 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
             'k': 'N*m^2/C^2',
             'q2': 'C'
           },
+          constantes: {'k': 8.99e9},
         ),
       ],
     ),

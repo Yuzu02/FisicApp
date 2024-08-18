@@ -2,18 +2,24 @@ import 'package:expressions/expressions.dart';
 
 class CalculadoraFormula {
   // Method to evaluate the formula
-  double evaluate(String expresion, Map<String, double> values) {
+  double evaluate(String expresion, Map<String, double> values,
+      Map<String, double> constantes) {
     // Create a map of variables with their values
     final Map<String, dynamic> evaluatedVariables = {};
     values.forEach((key, value) {
       evaluatedVariables[key] = value; // Use the values directly
     });
 
+    // Add constants to evaluated variables
+    constantes.forEach((key, value) {
+      evaluatedVariables[key] = value; // Add constants as well
+    });
+
     try {
-      // Create an expresion from the string
+      // Create an expression from the string
       final Expression exp = Expression.parse(expresion);
 
-      // Evaluate the expresion with the variable values
+      // Evaluate the expression with the variable values
       const evaluator = ExpressionEvaluator();
       final result = evaluator.eval(exp, evaluatedVariables);
 

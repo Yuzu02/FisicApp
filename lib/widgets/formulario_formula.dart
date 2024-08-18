@@ -1,5 +1,6 @@
 import 'package:fisicapp/Modelos/formula.dart';
 import 'package:fisicapp/Utilidades/calculadora_formula.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class FormularioFormula extends StatefulWidget {
@@ -15,8 +16,7 @@ class FormularioFormulaEstado extends State<FormularioFormula> {
   late Formula _selectedFormula;
   final Map<String, TextEditingController> _controllers = {};
   String _result = '';
-  final CalculadoraFormula _calculator =
-      CalculadoraFormula(); // Create an instance of CalculadoraFormula
+  final CalculadoraFormula _calculator = CalculadoraFormula();
 
   @override
   void initState() {
@@ -27,8 +27,14 @@ class FormularioFormulaEstado extends State<FormularioFormula> {
 
   void _initControllers() {
     _controllers.clear();
-    for (var variable in _selectedFormula.variables) {
+    for (var variable in _selectedFormula.allVariables) {
       _controllers[variable] = TextEditingController();
+
+      // If the variable is a constant, set its value in scientific notation
+      if (_selectedFormula.constantes.containsKey(variable)) {
+        _controllers[variable]!.text =
+            _selectedFormula.constantes[variable]!.toStringAsExponential(2);
+      }
     }
   }
 
@@ -144,9 +150,18 @@ class FormularioFormulaEstado extends State<FormularioFormula> {
     Map<String, double> values = {};
     bool allFilled = true;
 
-    for (var variable in _selectedFormula.variables) {
+    // Collect values from the input fields
+    for (var variable in [
+      ..._selectedFormula.variables,
+      ..._selectedFormula.constantes.keys
+    ]) {
+      if (_controllers[variable] == null) {
+        allFilled = false;
+        break;
+      }
+
       if (_controllers[variable]!.text.isNotEmpty) {
-        values[variable] = double.parse(_controllers[variable]!.text);
+        values[variable] = double.tryParse(_controllers[variable]!.text) ?? 0.0;
       } else {
         allFilled = false;
         break;
@@ -155,11 +170,21 @@ class FormularioFormulaEstado extends State<FormularioFormula> {
 
     if (allFilled) {
       try {
+        final combinedValues = {...values, ..._selectedFormula.constantes};
         double result = _calculator.evaluate(_selectedFormula.expresion,
-            values); // Use the new class for evaluation
+            combinedValues, _selectedFormula.constantes);
+
+        // Determine the format for the result
+        String resultString;
+        if (result.abs() >= 1e3 || result.abs() < 1e-3) {
+          resultString = result.toStringAsExponential(2);
+        } else {
+          resultString = result.toStringAsFixed(2);
+        }
+
         setState(() {
           _result =
-              '${_selectedFormula.resultado} = ${result.toStringAsFixed(2)} ${_selectedFormula.unidades[_selectedFormula.resultado]}';
+              '${_selectedFormula.resultado} = $resultString ${_selectedFormula.unidades[_selectedFormula.resultado]}';
         });
       } catch (e) {
         setState(() {
