@@ -1,7 +1,7 @@
 import 'package:fisicapp/Modelos/formula.dart';
 import 'package:fisicapp/Utilidades/calculadora_formula.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
 
 class FormularioFormula extends StatefulWidget {
   final GrupoFormulas formulaGroup;
@@ -80,10 +80,12 @@ class FormularioFormulaEstado extends State<FormularioFormula> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Text(
-              _selectedFormula.etiqueta,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+            child: Center(
+              child: Math.tex(
+                _selectedFormula.etiqueta,
+                mathStyle: MathStyle.display,
+                textScaleFactor: 1.5,
+              ),
             ),
           ),
         ),

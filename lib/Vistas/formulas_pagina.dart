@@ -2,6 +2,7 @@ import 'package:fisicapp/Formulas/formulas.dart';
 import 'package:fisicapp/Modelos/formula.dart';
 import 'package:fisicapp/Vistas/formula_detallada_pagina.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
 
 class FormulasPagina extends StatelessWidget {
   final String category;
@@ -28,7 +29,7 @@ class FormulasPagina extends StatelessWidget {
 
           return ListTile(
             title: Text(group.nombre),
-            subtitle: Text(mainFormula.etiqueta),
+            subtitle: Math.tex(mainFormula.etiqueta),
             onTap: () {
               Navigator.push(
                 context,
