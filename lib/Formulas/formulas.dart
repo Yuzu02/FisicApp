@@ -1,4 +1,5 @@
 import 'package:fisicapp/Modelos/formula.dart';
+import 'package:fisicapp/Formulas/constantes.dart';
 
 // Sección de Newton
 final SeccionFormulas seccionNewton = SeccionFormulas(
@@ -10,7 +11,7 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
         Formula(
           nombre: 'Fuerza',
           etiqueta:
-              r'\vec{F} = m \cdot \vec{a}', // ?  La etiqueta es la formula que se mostrara en la UI
+              r'\vec{F} = m \cdot \vec{a}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
           expresion:
               'm * a', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'F',
@@ -20,7 +21,7 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
         Formula(
           nombre: 'Aceleración',
           etiqueta:
-              r'\vec{a} = \frac{\vec{F}}{m}', // ?  La etiqueta es la formula que se mostrara en la UI
+              r'\vec{a} = \frac{\vec{F}}{m}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
           expresion:
               'F / m', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'a',
@@ -30,7 +31,7 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
         Formula(
           nombre: 'Masa',
           etiqueta:
-              r'm = \frac{\vec{F}}{\vec{a}}', // ?  La etiqueta es la formula que se mostrara en la UI
+              r'm = \frac{\vec{F}}{\vec{a}}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
           expresion:
               'F / a', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'm',
@@ -52,7 +53,7 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
         Formula(
           nombre: 'Voltaje',
           etiqueta:
-              r'V = I \cdot R', // ?  La etiqueta es la formula que se mostrara en la UI
+              r'V = I \cdot R', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
           expresion:
               'I * R', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'V',
@@ -62,7 +63,7 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
         Formula(
           nombre: 'Corriente',
           etiqueta:
-              r'I = \frac{V}{R}', // ?  La etiqueta es la formula que se mostrara en la UI
+              r'I = \frac{V}{R}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
           expresion:
               'V / R', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'I',
@@ -72,7 +73,7 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
         Formula(
           nombre: 'Resistencia',
           etiqueta:
-              r'R = \frac{V}{I}', // ?  La etiqueta es la formula que se mostrara en la UI
+              r'R = \frac{V}{I}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
           expresion:
               'V / I', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'R',
@@ -87,9 +88,8 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
         Formula(
           nombre: 'Fuerza',
           etiqueta:
-              r'\vec{F} = k \cdot \frac{q_1 \cdot q_2}{r^2}', // ?  La etiqueta es la formula que se mostrara en la UI
-          expresion:
-              'k * (q1 * q2) / (r * r)', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
+              r'\vec{F} = k \cdot \frac{q_1 \cdot q_2}{r^2}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
+          expresion: 'k * (q1 * q2) / (r * r)',
           resultado: 'F',
           variables: ['k', 'q1', 'q2', 'r'],
           unidades: {
@@ -99,14 +99,16 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
             'q2': 'C',
             'r': 'm'
           },
-          constantes: {'k': 8.99e9},
+          constantes: {
+            Constantes.constanteCoulomb.simbolo:
+                Constantes.constanteCoulomb.valor
+          },
         ),
         Formula(
           nombre: 'Distancia',
           etiqueta:
-              r'r = \sqrt{\frac{k \cdot q_1 \cdot q_2}{\vec{F}}}', // ?  La etiqueta es la formula que se mostrara en la UI
-          expresion:
-              'sqrt((k * q1 * q2) / F)', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
+              r'r = \sqrt{\frac{k \cdot q_1 \cdot q_2}{\vec{F}}}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
+          expresion: '((k * (q1 * q2)) / F)*(0.5)',
           resultado: 'r',
           variables: ['k', 'q1', 'q2', 'F'],
           unidades: {
@@ -116,14 +118,16 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
             'q2': 'C',
             'F': 'N'
           },
-          constantes: {'k': 8.99e9},
+          constantes: {
+            Constantes.constanteCoulomb.simbolo:
+                Constantes.constanteCoulomb.valor
+          },
         ),
         Formula(
           nombre: 'Carga 1',
           etiqueta:
-              r'q_1 = \frac{\vec{F} \cdot r^2}{k \cdot q_2}', // ?  La etiqueta es la formula que se mostrara en la UI
-          expresion:
-              'F * (r * r) / (k * q2)', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
+              r'q_1 = \frac{\vec{F} \cdot r^2}{k \cdot q_2}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
+          expresion: 'F * (r * r) / (k * q2)',
           resultado: 'q1',
           variables: ['F', 'r', 'k', 'q2'],
           unidades: {
@@ -133,7 +137,10 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
             'k': 'N*m^2/C^2',
             'q2': 'C'
           },
-          constantes: {'k': 8.99e9},
+          constantes: {
+            Constantes.constanteCoulomb.simbolo:
+                Constantes.constanteCoulomb.valor
+          },
         ),
       ],
     ),
@@ -150,7 +157,7 @@ final SeccionFormulas seccionGeneral = SeccionFormulas(
         Formula(
           nombre: 'Velocidad',
           etiqueta:
-              r'\vec{v} = \frac{d}{t}', // ?  La etiqueta es la formula que se mostrara en la UI
+              r'\vec{v} = \frac{d}{t}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
           expresion:
               'd / t', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'v',
@@ -160,7 +167,7 @@ final SeccionFormulas seccionGeneral = SeccionFormulas(
         Formula(
           nombre: 'Distancia',
           etiqueta:
-              r'd = \vec{v} \cdot t', // ?  La etiqueta es la formula que se mostrara en la UI
+              r'd = \vec{v} \cdot t', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
           expresion:
               'v * t', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 'd',
@@ -170,7 +177,7 @@ final SeccionFormulas seccionGeneral = SeccionFormulas(
         Formula(
           nombre: 'Tiempo',
           etiqueta:
-              r't = \frac{d}{\vec{v}}', // ?  La etiqueta es la formula que se mostrara en la UI
+              r't = \frac{d}{\vec{v}}', // ?  La etiqueta es la formula que se mostrara en la UI  ( Escrita en LaTex obviando los $ )
           expresion:
               'd / v', // * Formato en el cual se deben hacer las expresiones , sin el = y ni el resultado , solo el lado derecho de la igualdad
           resultado: 't',
