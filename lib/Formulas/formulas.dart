@@ -421,11 +421,113 @@ final SeccionFormulas seccionCinematica = SeccionFormulas(
   ],
 );
 
+// Sección de Capacitores
+final SeccionFormulas seccionCapacitores = SeccionFormulas(
+  nombre: 'Capacitores',
+  groups: [
+    GrupoFormulas(
+      nombre: 'Capacitores en Serie',
+      instrucciones: instrucciones.capacitoresSerie,
+      formulas: [
+        Formula(
+          nombre: 'Capacitancia equivalente',
+          etiqueta: r'\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3}',
+          expresion: '1 / C1 + 1 / C2 + 1 / C3',
+          resultado: 'Ceq',
+          variables: ['C1', 'C2', 'C3'],
+          unidades: {'Ceq': 'F', 'C1': 'F', 'C2': 'F', 'C3': 'F'},
+        ),
+        Formula(
+          nombre: 'Voltaje total',
+          etiqueta: r'V_{total} = V_1 + V_2 + V_3',
+          expresion: 'V1 + V2 + V3',
+          resultado: 'Vtotal',
+          variables: ['V1', 'V2', 'V3'],
+          unidades: {'Vtotal': 'V', 'V1': 'V', 'V2': 'V', 'V3': 'V'},
+        ),
+        Formula(
+          nombre: 'Carga',
+          etiqueta: r'Q_1 = Q_2 = Q_3',
+          expresion: 'Q',
+          resultado: 'Q',
+          variables: ['Q'],
+          unidades: {'Q': 'C'},
+        ),
+      ],
+    ),
+    GrupoFormulas(
+      nombre: 'Capacitores en Paralelo',
+      instrucciones: instrucciones.capacitoresParalelo,
+      formulas: [
+        Formula(
+          nombre: 'Capacitancia equivalente',
+          etiqueta: r'C_{eq} = C_1 + C_2 + C_3',
+          expresion: 'C1 + C2 + C3',
+          resultado: 'Ceq',
+          variables: ['C1', 'C2', 'C3'],
+          unidades: {'Ceq': 'F', 'C1': 'F', 'C2': 'F', 'C3': 'F'},
+        ),
+        Formula(
+          nombre: 'Voltaje',
+          etiqueta: r'V_1 = V_2 = V_3',
+          expresion: 'V',
+          resultado: 'V',
+          variables: ['V'],
+          unidades: {'V': 'V'},
+        ),
+        Formula(
+          nombre: 'Carga total',
+          etiqueta: r'Q_{total} = Q_1 + Q_2 + Q_3',
+          expresion: 'Q1 + Q2 + Q3',
+          resultado: 'Qtotal',
+          variables: ['Q1', 'Q2', 'Q3'],
+          unidades: {'Qtotal': 'C', 'Q1': 'C', 'Q2': 'C', 'Q3': 'C'},
+        ),
+      ],
+    ),
+    
+    GrupoFormulas(
+  nombre: 'Carga en un Capacitor',
+  instrucciones: instrucciones.capacitores, // Asume que hay instrucciones definidas para capacitores
+  formulas: [
+    // Fórmula Principal
+    Formula(
+      nombre: 'Carga en un Capacitor',
+      etiqueta: r'Q = C \cdot V',
+      expresion: 'C * V',
+      resultado: 'Q',
+      variables: ['C', 'V'],
+      unidades: {'Q': 'C', 'C': 'F', 'V': 'V'},
+    ),
+    // Despeje para Capacitancia
+    Formula(
+      nombre: 'Capacitancia',
+      etiqueta: r'C = \frac{Q}{V}',
+      expresion: 'Q / V',
+      resultado: 'C',
+      variables: ['Q', 'V'],
+      unidades: {'C': 'F', 'Q': 'C', 'V': 'V'},
+    ),
+    // Despeje para Voltaje
+    Formula(
+      nombre: 'Voltaje',
+      etiqueta: r'V = \frac{Q}{C}',
+      expresion: 'Q / C',
+      resultado: 'V',
+      variables: ['Q', 'C'],
+      unidades: {'V': 'V', 'Q': 'C', 'C': 'F'},
+    ),
+  ],
+)
+
+  ],
+);
 //  Lista de secciones de fórmulas
 final List<SeccionFormulas> formulasSections = <SeccionFormulas>[
   seccionNewton,
   seccionFisicaElectrica,
   seccionGeneral,
   seccionCinematica,
+  seccionCapacitores,
   // ? Si se quiere agregar una nueva sección de fórmulas, se debe agregar un nuevo objeto de tipo SeccionFormulas a esta lista
 ];

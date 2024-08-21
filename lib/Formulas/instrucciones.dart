@@ -203,5 +203,87 @@ final instrucciones = Instruccion(
     ),
   ],
   
+  capacitoresSerie: [
+    InstruccionFormula(
+        descripcion:
+            'Cuando los capacitores están conectados en serie, la capacitancia equivalente se calcula sumando las inversas de las capacitancias individuales. La capacitancia equivalente es siempre menor que la capacitancia del capacitor con menor valor en la serie.',
+        latexFormula: r'\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3}',
+        explicaciones: [
+          ExplicacionItem(
+              latex: r'C_{eq}', texto: ': La capacitancia equivalente (en faradios, F)'),
+          ExplicacionItem(latex: r'C_1', texto: ': La capacitancia del primer capacitor (en faradios, F)'),
+          ExplicacionItem(latex: r'C_2', texto: ': La capacitancia del segundo capacitor (en faradios, F)'),
+          ExplicacionItem(latex: r'C_3', texto: ': La capacitancia del tercer capacitor (en faradios, F)'),
+        ]
+      ),
+    InstruccionFormula(
+        descripcion:
+            'En una conexión en serie, el voltaje total aplicado a la serie de capacitores es la suma de los voltajes aplicados a cada capacitor individualmente.',
+        latexFormula: r'V_{total} = V_1 + V_2 + V_3',
+        explicaciones: [
+          ExplicacionItem(
+              latex: r'V_{total}', texto: ': El voltaje total aplicado a la serie de capacitores (en voltios, V)'),
+          ExplicacionItem(latex: r'V_1, V_2, V_3', texto: ': El voltaje individual en cada capacitor (en voltios, V)')
+        ]
+        ),
+    InstruccionFormula(
+        descripcion:
+            'La carga en cada capacitor en una conexión en serie es la misma y está dada por la fórmula de carga del capacitor, que depende de la capacitancia y el voltaje aplicado.',
+        latexFormula: r'Q_1 = Q_2 = Q_3',
+        explicaciones: [
+          ExplicacionItem(
+              latex: r'Q', texto: ': La carga en cada capacitor (en culombios, C)'),
+        ]
+        ),
+  ],
+  
+  capacitoresParalelo: [
+    InstruccionFormula(
+      descripcion: 'En un circuito con capacitores en paralelo, la capacitancia total es la suma de las capacitancias individuales de cada capacitor. El voltaje es el mismo en todos los capacitores, y la carga total es la suma de las cargas en cada capacitor.',
+      latexFormula: r'C_{eq} = C_1 + C_2 + C_3',
+      explicaciones: [
+        ExplicacionItem(latex: r'C_{eq}', texto: ': Capacitancia equivalente (en faradios, F)'),
+        ExplicacionItem(latex: r'C_1, C_2, C_3', texto: ': Capacitancias individuales (en faradios, F)'),
+      ],
+    ),
+    InstruccionFormula(
+      descripcion: 'El voltaje en capacitores conectados en paralelo es el mismo para todos ellos.',
+      latexFormula: r'V_1 = V_2 = V_3',
+      explicaciones: [
+        ExplicacionItem(latex: r'V_1, V_2, V_3', texto: ': Voltaje en cada capacitor (en voltios, V)'),
+      ],
+    ),
+    InstruccionFormula(
+      descripcion: 'La carga total en capacitores conectados en paralelo es la suma de las cargas individuales en cada capacitor.',
+      latexFormula: r'Q_{total} = Q_1 + Q_2 + Q_3',
+      explicaciones: [
+        ExplicacionItem(latex: r'Q_{total}', texto: ': Carga total (en coulombs, C)'),
+        ExplicacionItem(latex: r'Q_1, Q_2, Q_3', texto: ': Cargas individuales en cada capacitor (en coulombs, C)'),
+      ],
+    ),
+  ],
+  
+  capacitores: [
+    InstruccionFormula(
+      descripcion:
+        'La carga ( Q ) almacenada en un capacitor se calcula multiplicando la capacitancia ( C ) del capacitor por el voltaje ( V ) aplicado.',
+      latexFormula: r'Q = C \cdot V',
+      explicaciones: [
+        ExplicacionItem(
+          latex: r'Q',
+          texto: 'Carga almacenada en el capacitor (en Coulombs, C)',
+        ),
+        ExplicacionItem(
+          latex: r'C',
+          texto: 'Capacitancia del capacitor (en Faradios, F)',
+        ),
+        ExplicacionItem(
+          latex: r'V',
+          texto: 'Voltaje aplicado (en Voltios, V)',
+        ),
+      ],
+    ),
+  ]
+
   // Otras instrucciones si es necesario
 );

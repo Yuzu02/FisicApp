@@ -34,6 +34,9 @@ class Instruccion {
   final List<InstruccionFormula> aceleracionMedia;
   final List<InstruccionFormula> rapidez;
   final List<InstruccionFormula> movimientoRectilineo;
+  final List<InstruccionFormula> capacitoresSerie;
+  final List<InstruccionFormula> capacitoresParalelo;
+  final List<InstruccionFormula> capacitores;
 
   // ! Cada vez que se agregue una instrucción nueva para un grupo de formulas se debe agregar un parámetro en el constructor de la clase ( arriba de este comentario ) y asignarle el valor correspondiente , luego ir al archivo instrucciones.dart en la carpeta Formulas y agregar la instrucción correspondiente
 
@@ -52,6 +55,9 @@ class Instruccion {
     required this.aceleracionMedia,
     required this.rapidez,
     required this.movimientoRectilineo,
+    required this.capacitoresSerie,
+    required this.capacitoresParalelo,
+    required this.capacitores,
 
     //* Ejemplo
     // required this.nuevaInstruccion,
