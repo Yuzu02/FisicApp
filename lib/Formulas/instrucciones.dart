@@ -90,5 +90,35 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+  accionReaccion: [
+    InstruccionFormula(
+      descripcion:
+          'La ley de acción y reacción establece que para cada acción hay una reacción igual y opuesta. Esto significa que la fuerza que un objeto A ejerce sobre un objeto B es igual en magnitud y opuesta en dirección a la fuerza que el objeto B ejerce sobre el objeto A.',
+      latexFormula: r'{F}_{accion} = -{F}_{reaccion}',
+      explicaciones: [
+        ExplicacionItem(
+            latex: r'{F}_{accion}', 
+            texto: ': La fuerza de acción (en newtons, N)'),
+        ExplicacionItem(
+            latex: r'{F}_{reaccion}', 
+            texto: ': La fuerza de reacción (en newtons, N)'),
+      ],
+    ),
+  ],
+   gravitacionUniversal: [
+    InstruccionFormula(
+      descripcion:
+          'La ley de la gravitación universal de Newton establece que cada partícula en el universo atrae a cada otra partícula con una fuerza que es proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia entre sus centros.',
+      latexFormula: r'F = G \cdot \frac{m_1 \cdot m_2}{r^2}',
+      explicaciones: [
+        ExplicacionItem(
+            latex: r'F', texto: ': La fuerza gravitacional (en newtons, N)'),
+        ExplicacionItem(latex: r'G', texto: ': Constante de gravitación universal'),
+        ExplicacionItem(latex: r'm_1', texto: ': Masa del primer objeto (en kg)'),
+        ExplicacionItem(latex: r'm_2', texto: ': Masa del segundo objeto (en kg)'),
+        ExplicacionItem(latex: r'r', texto: ': Distancia entre los objetos (en metros, m)'),
+      ],
+    ),
+  ],
   // Otras instrucciones si es necesario
 );

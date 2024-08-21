@@ -87,6 +87,46 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
             unidades: {'r': 'm', 'I': 'kg*m^2', 'm': 'kg'},
           ),
         ]),
+        GrupoFormulas(
+      nombre: 'Acción y Reacción',
+      instrucciones: instrucciones.accionReaccion,
+      formulas: [
+        Formula(
+          nombre: 'Fuerza de Acción',
+          etiqueta:
+              r'\vec{F}_{acción} = -\vec{F}_{reacción}',
+          expresion: '-F_reaccion',
+          resultado: 'F_accion',
+          variables: ['F_reaccion'],
+          unidades: {'F_accion': 'N', 'F_reaccion': 'N'},
+        ),
+      ],
+    ),
+    GrupoFormulas(
+      nombre: 'Gravitación Universal',
+      instrucciones: instrucciones.gravitacionUniversal,
+      formulas: [
+        Formula(
+          nombre: 'Fuerza Gravitacional',
+          etiqueta:
+              r'\vec{F} = G \cdot \frac{m_1 \cdot m_2}{r^2}',
+          expresion: 'G * (m1 * m2) / (r * r)',
+          resultado: 'F',
+          variables: ['G', 'm1', 'm2', 'r'],
+          unidades: {
+            'F': 'N',
+            'G': 'N*m^2/kg^2',
+            'm1': 'kg',
+            'm2': 'kg',
+            'r': 'm'
+          },
+          constantes: {
+            Constantes.constanteGravitacion.simbolo:
+                Constantes.constanteGravitacion.valor
+          },
+        ),
+      ],
+    ),
   ],
 );
 
