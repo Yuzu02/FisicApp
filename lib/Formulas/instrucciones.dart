@@ -17,17 +17,18 @@ final instrucciones = Instruccion(
               latex: r'\vec{a}', texto: ': La aceleración (en m/s²)'),
         ]),
   ],
+  
   velocidad: [
     InstruccionFormula(
       descripcion:
           'La velocidad es una magnitud vectorial que indica la rapidez con la que un objeto se mueve en una dirección específica.',
-      latexFormula: r'\vec{v} = \frac{\Delta \vec{x}}{\Delta t}',
+      latexFormula: r'{v} = \frac{\Delta {x}}{\Delta t}',
       explicaciones: [
         ExplicacionItem(
-            latex: r'\vec{v}',
+            latex: r'{v}',
             texto: ': La velocidad (en metros por segundo, m/s)'),
         ExplicacionItem(
-            latex: r'\Delta \vec{x}',
+            latex: r'\Delta {x}',
             texto: ': El cambio en la posición del objeto (en metros, m)'),
         ExplicacionItem(
             latex: r'\Delta t',
@@ -35,6 +36,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+  
   leyDeCoulomb: [
     InstruccionFormula(
         descripcion:
@@ -59,6 +61,7 @@ final instrucciones = Instruccion(
               texto: ': La distancia entre las cargas (en metros, m)'),
         ]),
   ],
+  
   leyDeOhm: [
     InstruccionFormula(
       descripcion:
@@ -90,6 +93,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+  
   accionReaccion: [
     InstruccionFormula(
       descripcion:
@@ -105,7 +109,8 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
-   gravitacionUniversal: [
+  
+  gravitacionUniversal: [
     InstruccionFormula(
       descripcion:
           'La ley de la gravitación universal de Newton establece que cada partícula en el universo atrae a cada otra partícula con una fuerza que es proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia entre sus centros.',
@@ -120,5 +125,83 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+  
+  velocidadMedia: [
+    InstruccionFormula(
+      descripcion: 'La velocidad media es el cociente entre el desplazamiento y el tiempo transcurrido.',
+      latexFormula: r'{v} = \frac{\Delta x}{\Delta t}',
+      explicaciones: [
+        ExplicacionItem(latex: r'{v}', texto: ': Velocidad media (en m/s)'),
+        ExplicacionItem(latex: r'\Delta x', texto: ': Desplazamiento (en metros)'),
+        ExplicacionItem(latex: r'\Delta t', texto: ': Tiempo transcurrido (en segundos)'),
+      ],
+    ),
+  ],
+  
+  aceleracionMedia: [
+    InstruccionFormula(
+      descripcion: 'La aceleración media es el cambio de velocidad dividido por el tiempo transcurrido.',
+      latexFormula: r'{a} = \frac{\Delta v}{\Delta t}',
+      explicaciones: [
+        ExplicacionItem(latex: r'{a}', texto: ': Aceleración media (en m/s²)'),
+        ExplicacionItem(latex: r'\Delta v', texto: ': Cambio de velocidad (en m/s)'),
+        ExplicacionItem(latex: r'\Delta t', texto: ': Tiempo transcurrido (en segundos)'),
+      ],
+    ),
+  ],
+  
+  rapidez: [
+    // Instrucción para rapidez
+    InstruccionFormula(
+      descripcion: 'La rapidez es el cociente entre la distancia recorrida y el tiempo transcurrido. A diferencia de la velocidad, la rapidez no tiene en cuenta la dirección del movimiento.',
+      latexFormula: r'r = \frac{d}{t}',
+      explicaciones: [
+        ExplicacionItem(latex: r'r', texto: ': Rapidez (en m/s)'),
+        ExplicacionItem(latex: r'd', texto: ': Distancia recorrida (en metros)'),
+        ExplicacionItem(latex: r't', texto: ': Tiempo transcurrido (en segundos)'),
+      ],
+    ),
+  ],
+
+  movimientoRectilineo: [
+
+    // Velocidad Final
+    InstruccionFormula(
+      descripcion: 'La velocidad final es la velocidad inicial más el producto de la aceleración y el tiempo.',
+      latexFormula: r'v_f = v_i + a \cdot t',
+      explicaciones: [
+        ExplicacionItem(latex: r'v_f', texto: ': Velocidad final (en m/s)'),
+        ExplicacionItem(latex: r'v_i', texto: ': Velocidad inicial (en m/s)'),
+        ExplicacionItem(latex: r'a', texto: ': Aceleración (en m/s²)'),
+        ExplicacionItem(latex: r't', texto: ': Tiempo (en segundos)'),
+      ],
+    ),
+
+    // Posición
+    InstruccionFormula(
+      descripcion: 'La posición en un movimiento rectilíneo uniformemente acelerado se calcula sumando el desplazamiento inicial más el producto de la velocidad inicial y el tiempo, más la mitad del producto de la aceleración y el tiempo al cuadrado.',
+      latexFormula: r'x = x_i + v_i \cdot t + \frac{1}{2} \cdot a \cdot t^2',
+      explicaciones: [
+        ExplicacionItem(latex: r'x', texto: ': Posición (en metros)'),
+        ExplicacionItem(latex: r'x_i', texto: ': Posición inicial (en metros)'),
+        ExplicacionItem(latex: r'v_i', texto: ': Velocidad inicial (en m/s)'),
+        ExplicacionItem(latex: r'a', texto: ': Aceleración (en m/s²)'),
+        ExplicacionItem(latex: r't', texto: ': Tiempo (en segundos)'),
+      ],
+    ),
+
+    // Velocidad al Cuadrado
+    InstruccionFormula(
+      descripcion: 'La velocidad al cuadrado es la suma del cuadrado de la velocidad inicial más el doble del producto de la aceleración y el desplazamiento.',
+      latexFormula: r'v_f^2 = v_i^2 + 2 \cdot a \cdot \Delta x',
+      explicaciones: [
+        ExplicacionItem(latex: r'v_f^2', texto: ': Velocidad final al cuadrado (en m²/s²)'),
+        ExplicacionItem(latex: r'v_i^2', texto: ': Velocidad inicial al cuadrado (en m²/s²)'),
+        ExplicacionItem(latex: r'a', texto: ': Aceleración (en m/s²)'),
+        ExplicacionItem(latex: r'\Delta x', texto: ': Desplazamiento (en metros)'),
+      ],
+    ),
+  ],
+  
   // Otras instrucciones si es necesario
 );

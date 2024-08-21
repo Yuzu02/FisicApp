@@ -30,6 +30,10 @@ class Instruccion {
   final List<InstruccionFormula> inercia;
   final List<InstruccionFormula> accionReaccion;
   final List<InstruccionFormula> gravitacionUniversal;
+  final List<InstruccionFormula> velocidadMedia;
+  final List<InstruccionFormula> aceleracionMedia;
+  final List<InstruccionFormula> rapidez;
+  final List<InstruccionFormula> movimientoRectilineo;
 
   // ! Cada vez que se agregue una instrucción nueva para un grupo de formulas se debe agregar un parámetro en el constructor de la clase ( arriba de este comentario ) y asignarle el valor correspondiente , luego ir al archivo instrucciones.dart en la carpeta Formulas y agregar la instrucción correspondiente
 
@@ -43,7 +47,11 @@ class Instruccion {
     required this.velocidad,
     required this.inercia,
     required this.accionReaccion,
-    required this.gravitacionUniversal
+    required this.gravitacionUniversal,
+    required this.velocidadMedia,
+    required this.aceleracionMedia,
+    required this.rapidez,
+    required this.movimientoRectilineo,
 
     //* Ejemplo
     // required this.nuevaInstruccion,

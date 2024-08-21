@@ -86,8 +86,9 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
             variables: ['I', 'm'],
             unidades: {'r': 'm', 'I': 'kg*m^2', 'm': 'kg'},
           ),
-        ]),
-        GrupoFormulas(
+        ]
+    ),
+    GrupoFormulas(
       nombre: 'Acción y Reacción',
       instrucciones: instrucciones.accionReaccion,
       formulas: [
@@ -280,6 +281,144 @@ final SeccionFormulas seccionGeneral = SeccionFormulas(
       ],
     ),
   ],
+  
+);
+
+// Sección de Cinemática
+final SeccionFormulas seccionCinematica = SeccionFormulas(
+  nombre: 'Cinemática',
+  groups: [
+    // Velocidad Media
+    GrupoFormulas(
+      nombre: 'Velocidad Media',
+      instrucciones: instrucciones.velocidadMedia,
+      formulas: [
+        Formula(
+          nombre: 'Velocidad media',
+          etiqueta: r'\bar{v} = \frac{\Delta x}{\Delta t}',
+          expresion: '(xf - xi) / dt',
+          resultado: 'v',
+          variables: ['xi','xf', 'dt'],
+          unidades: {'v': 'm/s', 'xi': 'm', 'xf': 'm', 'dt': 's'},
+        ),
+        Formula(
+          nombre: 'Desplasamiento Δx',
+          etiqueta: r'\Delta x = \bar{v} \cdot \Delta t',
+          expresion: 'v * dt',
+          resultado: 'dx',
+          variables: ['v', 'dt'],
+          unidades: {'dx': 'm', 'v': 'm/s', 'dt': 's'},
+        ),
+        Formula(
+          nombre: 'Tiempo Δt',
+          etiqueta: r'\Delta t = \frac{\Delta x}{\bar{v}}',
+          expresion: '(xf - xi) / v',
+          resultado: 'dt',
+          variables: ['xi','xf', 'v'],
+          unidades: {'dt': 's', 'xi': 'm', 'xf': 'm', 'v': 'm/s'},
+        ),
+      ],
+    ),
+
+    // Aceleración Media
+    GrupoFormulas(
+      nombre: 'Aceleración Media',
+      instrucciones: instrucciones.aceleracionMedia,
+      formulas: [
+        Formula(
+          nombre: 'Aceleración media',
+          etiqueta: r'\bar{a} = \frac{\Delta v}{\Delta t}',
+          expresion: '(vf - vi) / dt',
+          resultado: 'a',
+          variables: ['vi','vf', 'dt'],
+          unidades: {'a': 'm/s²', 'vi': 'm/s', 'vf': 'm/s', 'dt': 's'},
+        ),
+        Formula(
+          nombre: 'Velocidad Δv',
+          etiqueta: r'\Delta v = \bar{a} \cdot \Delta t',
+          expresion: 'a * dt',
+          resultado: 'dv',
+          variables: ['a', 'dt'],
+          unidades: {'dv': 'm/s', 'a': 'm/s²', 'dt': 's'},
+        ),
+        Formula(
+          nombre: 'Tiempo Δt',
+          etiqueta: r'\Delta t = \frac{\Delta v}{\bar{a}}',
+          expresion: '(vf - vi) / a',
+          resultado: 'dt',
+          variables: ['vi','vf', 'a'],
+          unidades: {'dt': 's', 'vi': 'm/s', 'vf': 'm/s', 'a': 'm/s²'},
+        ),
+      ],
+    ),
+
+    // Rapidez
+    GrupoFormulas(
+      nombre: 'Rapidez',
+      instrucciones: instrucciones.rapidez,
+      formulas: [
+        Formula(
+          nombre: 'Rapidez',
+          etiqueta: r'r = \frac{d}{t}',
+          expresion: 'd / t',
+          resultado: 'r',
+          variables: ['d', 't'],
+          unidades: {'r': 'm/s', 'd': 'm', 't': 's'},
+        ),
+        // Despeje de d
+        Formula(
+          nombre: 'Distancia',
+          etiqueta: r'd = r \cdot t',
+          expresion: 'r * t',
+          resultado: 'd',
+          variables: ['r', 't'],
+          unidades: {'d': 'm', 'r': 'm/s', 't': 's'},
+        ),
+        // Despeje de t
+        Formula(
+          nombre: 'Tiempo',
+          etiqueta: r't = \frac{d}{r}',
+          expresion: 'd / r',
+          resultado: 't',
+          variables: ['d', 'r'],
+          unidades: {'t': 's', 'd': 'm', 'r': 'm/s'},
+        ),
+      ],
+    ),
+
+    //MRUA 
+    GrupoFormulas(
+      nombre: 'Ecuaciones del Movimiento Rectilíneo Uniformemente Acelerado',
+      instrucciones: instrucciones.movimientoRectilineo,
+      formulas: [
+        Formula(
+          nombre: 'Velocidad final',
+          etiqueta: r'v_f = v_i + a \cdot t',
+          expresion: 'vi + (a * t)',
+          resultado: 'vf',
+          variables: ['vi', 'a', 't'],
+          unidades: {'vf': 'm/s', 'vi': 'm/s', 'a': 'm/s²', 't': 's'},
+        ),
+        Formula(
+          nombre: 'Posición',
+          etiqueta: r'x = x_i + v_i \cdot t + \frac{1}{2} \cdot a \cdot t^2',
+          expresion: 'xi + (vi * t) + (0.5 * a * (t * t))',
+          resultado: 'x',
+          variables: ['xi', 'vi', 'a', 't'],
+          unidades: {'x': 'm', 'xi': 'm', 'vi': 'm/s', 'a': 'm/s²', 't': 's'},
+        ),
+        Formula(
+          nombre: 'Velocidad al Cuadrado',
+          etiqueta: r'v_f^2 = v_i^2 + 2 \cdot a \cdot \Delta x',
+          expresion: '(vi * vi) + (2 * a * dx)',
+          resultado: 'vf²',
+          variables: ['vi', 'a', 'dx'],
+          unidades: {'vf²': 'm/s²', 'vi': 'm/s', 'a': 'm/s²', 'dx': 'm'},
+        ),
+      ],
+    ),
+    
+  ],
 );
 
 //  Lista de secciones de fórmulas
@@ -287,5 +426,6 @@ final List<SeccionFormulas> formulasSections = <SeccionFormulas>[
   seccionNewton,
   seccionFisicaElectrica,
   seccionGeneral,
+  seccionCinematica,
   // ? Si se quiere agregar una nueva sección de fórmulas, se debe agregar un nuevo objeto de tipo SeccionFormulas a esta lista
 ];
