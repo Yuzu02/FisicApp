@@ -37,6 +37,8 @@ class Instruccion {
   final List<InstruccionFormula> capacitoresSerie;
   final List<InstruccionFormula> capacitoresParalelo;
   final List<InstruccionFormula> capacitores;
+  final List<InstruccionFormula> densidadesElectricas;
+  final List<InstruccionFormula> campoPotencialElectrico;
 
   // ! Cada vez que se agregue una instrucción nueva para un grupo de formulas se debe agregar un parámetro en el constructor de la clase ( arriba de este comentario ) y asignarle el valor correspondiente , luego ir al archivo instrucciones.dart en la carpeta Formulas y agregar la instrucción correspondiente
 
@@ -58,6 +60,8 @@ class Instruccion {
     required this.capacitoresSerie,
     required this.capacitoresParalelo,
     required this.capacitores,
+    required this.densidadesElectricas,
+    required this.campoPotencialElectrico,
 
     //* Ejemplo
     // required this.nuevaInstruccion,

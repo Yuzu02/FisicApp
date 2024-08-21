@@ -237,6 +237,90 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
         ),
       ],
     ),
+    GrupoFormulas(
+      nombre: 'Densidades Electricas', 
+      instrucciones: instrucciones.densidadesElectricas, 
+      formulas: [
+        Formula(
+          nombre: 'Densidad lineal de carga',
+          etiqueta: r'\lambda = \frac{q}{l}',
+          expresion: 'q / l',
+          resultado: 'λ',
+          variables: ['q', 'l'],
+          unidades: {'λ': 'C/m', 'q': 'C', 'l': 'm'},
+        ),
+        Formula(
+          nombre: 'Densidad superficial de carga',
+          etiqueta: r'\sigma = \frac{q}{S}',
+          expresion: 'q / S',
+          resultado: 'σ',
+          variables: ['q', 'S'],
+          unidades: {'σ': 'C/m²', 'q': 'C', 'S': 'm²'},
+        ),
+        Formula(
+          nombre: 'Densidad volumétrica de carga',
+          etiqueta: r'\rho = \frac{q}{V}',
+          expresion: 'q / V',
+          resultado: 'ρ',
+          variables: ['q', 'V'],
+          unidades: {'ρ': 'C/m³', 'q': 'C', 'V': 'm³'},
+        ),
+      ]
+      ),
+    GrupoFormulas(
+      nombre: 'Campo y Potencial Eléctrico',
+      instrucciones: instrucciones.campoPotencialElectrico,
+      formulas: [
+        Formula(
+          nombre: 'Campo eléctrico',
+          etiqueta: r'E = k \cdot \frac{Q}{r^2}',
+          expresion: 'k * Q / (r * r)',
+          resultado: 'E',
+          variables: ['k', 'Q', 'r'],
+          unidades: {
+            'E': 'N/C', 
+            'k': 'N*m^2/C^2', 
+            'Q': 'C', 
+            'r': 'm'},
+          constantes: {
+            Constantes.constanteCoulomb.simbolo:
+                Constantes.constanteCoulomb.valor
+          },
+        ),
+        Formula(
+          nombre: 'Potencial eléctrico',
+          etiqueta: r'V = k \cdot \frac{Q}{r}',
+          expresion: 'k * Q / r',
+          resultado: 'V',
+          variables: ['k', 'Q', 'r'],
+          unidades: {'V': 'V', 'k': 'N·m^2/C^2', 'Q': 'C', 'r': 'm'},
+          constantes: {
+            Constantes.constanteCoulomb.simbolo:
+                Constantes.constanteCoulomb.valor
+          },
+        ),
+        Formula(
+          nombre: 'Intensidad del campo eléctrico',
+          etiqueta: r'E = k \cdot \frac{q}{r^2}',
+          expresion: 'k * q / (r * r)',
+          resultado: 'E',
+          variables: ['k', 'q', 'r'],
+          unidades: {'E': 'N/C', 'k': 'N·m^2/C^2', 'q': 'C', 'r': 'm'},
+          constantes: {
+            Constantes.constanteCoulomb.simbolo:
+                Constantes.constanteCoulomb.valor
+          },
+        ),
+        Formula(
+          nombre: 'Flujo eléctrico de una superficie plana',
+          etiqueta: r'\Phi_E = E \cdot A \cdot \cos(\theta)',
+          expresion: 'E * A * cos(theta)',
+          resultado: 'ΦE',
+          variables: ['E', 'A', 'theta'],
+          unidades: {'ΦE': 'N·m²/C', 'E': 'N/C', 'A': 'm²', 'theta': 'rad'},
+        ),
+      ],
+    ),
   ],
 );
 
@@ -522,6 +606,11 @@ final SeccionFormulas seccionCapacitores = SeccionFormulas(
 
   ],
 );
+
+
+
+
+
 //  Lista de secciones de fórmulas
 final List<SeccionFormulas> formulasSections = <SeccionFormulas>[
   seccionNewton,

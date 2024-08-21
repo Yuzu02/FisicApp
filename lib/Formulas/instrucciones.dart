@@ -283,7 +283,161 @@ final instrucciones = Instruccion(
         ),
       ],
     ),
-  ]
+  ],
 
+  densidadesElectricas: [
+    InstruccionFormula(
+      descripcion:
+        'La densidad lineal de carga ( lambda ) representa la carga eléctrica distribuida a lo largo de una longitud.',
+      latexFormula: r'\lambda = \frac{q}{l}',
+      explicaciones: [
+        ExplicacionItem(
+          latex: r'\lambda',
+          texto: 'Densidad lineal de carga (en Coulombs por metro, C/m)',
+        ),
+        ExplicacionItem(
+          latex: r'q',
+          texto: 'Carga total (en Coulombs, C)',
+        ),
+        ExplicacionItem(
+          latex: r'l',
+          texto: 'Longitud (en metros, m)',
+        ),
+      ],
+    ),
+    InstruccionFormula(
+      descripcion:
+        'La densidad superficial de carga ( sigma ) describe la carga eléctrica distribuida sobre una superficie. ',
+      latexFormula: r'\sigma = \frac{q}{S}',
+      explicaciones: [
+        ExplicacionItem(
+          latex: r'\sigma',
+          texto: 'Densidad superficial de carga (en Coulombs por metro cuadrado, C/m²)',
+        ),
+        ExplicacionItem(
+          latex: r'q',
+          texto: 'Carga total (en Coulombs, C)',
+        ),
+        ExplicacionItem(
+          latex: r'S',
+          texto: 'Área de la superficie (en metros cuadrados, m²)',
+        ),
+      ],
+    ),
+    InstruccionFormula(
+      descripcion:
+        'La densidad volumétrica de carga ( ho ) indica la cantidad de carga distribuida en un volumen. ',
+      latexFormula: r'\rho = \frac{q}{V}',
+      explicaciones: [
+        ExplicacionItem(
+          latex: r'\rho',
+          texto: ': Densidad volumétrica de carga (en Coulombs por metro cúbico, C/m³)',
+        ),
+        ExplicacionItem(
+          latex: r'q',
+          texto: ': Carga total (en Coulombs, C)',
+        ),
+        ExplicacionItem(
+          latex: r'V',
+          texto: ': SVolumen (en metros cúbicos, m³)',
+        ),
+      ],
+    ),
+  ],
+  
+  campoPotencialElectrico: [
+    InstruccionFormula(
+      descripcion:
+        'Determinar la magnitud del campo eléctrico en un punto específico, dependiendo de la cantidad de carga y la distancia desde esa carga',
+      latexFormula: r'E = k \cdot \frac{Q}{r^2}',
+      explicaciones: [
+        ExplicacionItem(
+          latex: r'E',
+          texto: ' : Campo eléctrico (en Newtons por Coulomb, N/C)',
+        ),
+        ExplicacionItem(
+          latex: r'k',
+          texto: ' : Constante de Coulomb (en Newtons·metros cuadrados por Coulomb cuadrado, N·m²/C²)',
+        ),
+        ExplicacionItem(
+          latex: r'Q',
+          texto: ' : Carga (en Coulombs, C)',
+        ),
+        ExplicacionItem(
+          latex: r'r',
+          texto: ' : Distancia desde la carga al punto de interés (en metros, m)',
+        ),
+      ],
+    ),
+    InstruccionFormula(
+      descripcion:
+        'El potencial eléctrico representa la energía potencial por unidad de carga en un punto en el campo eléctrico, determinada por la distancia a la carga que lo genera',
+      latexFormula: r'V = k \cdot \frac{Q}{r}',
+      explicaciones: [
+        ExplicacionItem(
+          latex: r'V',
+          texto: ' : Potencial eléctrico (en Voltios, V)',
+        ),
+        ExplicacionItem(
+          latex: r'k',
+          texto: ' : Constante de Coulomb (en Newtons·metros cuadrados por Coulomb cuadrado, N·m²/C²)',
+        ),
+        ExplicacionItem(
+          latex: r'Q',
+          texto: ' : Carga (en Coulombs, C)',
+        ),
+        ExplicacionItem(
+          latex: r'r',
+          texto: ' : Distancia desde la carga al punto (en metros, m)',
+        ),
+      ],
+    ),
+    InstruccionFormula(
+      descripcion:
+        'La intensidad del campo eléctrico ( E ) debido a una carga ( q )',
+      latexFormula: r'E = k \cdot \frac{q}{r^2}',
+      explicaciones: [
+        ExplicacionItem(
+          latex: r'E',
+          texto: ' : Campo eléctrico (en Newtons por Coulomb, N/C)',
+        ),
+        ExplicacionItem(
+          latex: r'k',
+          texto: ' : Constante de Coulomb (en Newtons·metros cuadrados por Coulomb cuadrado, N·m²/C²)',
+        ),
+        ExplicacionItem(
+          latex: r'q',
+          texto: ' : Carga (en Coulombs, C)',
+        ),
+        ExplicacionItem(
+          latex: r'r',
+          texto: ' : Distancia desde la carga al punto (en metros, m)',
+        ),
+      ],
+    ),
+    InstruccionFormula(
+      descripcion:
+        'El flujo eléctrico ( ΦE ) a través de una superficie plana',
+      latexFormula: r'\Phi_E = E \cdot A \cdot \cos(\theta)',
+      explicaciones: [
+        ExplicacionItem(
+          latex: r'\Phi_E',
+          texto: ' : Flujo eléctrico (en Newtons·metros cuadrados por Coulomb, N·m²/C)',
+        ),
+        ExplicacionItem(
+          latex: r'E',
+          texto: ' : Campo eléctrico (en Newtons por Coulomb, N/C)',
+        ),
+        ExplicacionItem(
+          latex: r'A',
+          texto: ' : Área de la superficie (en metros cuadrados, m²)',
+        ),
+        ExplicacionItem(
+          latex: r'\theta',
+          texto: ' : Ángulo entre el campo eléctrico y la normal a la superficie (en radianes, rad)',
+        ),
+      ],
+    ),
+  ],
   // Otras instrucciones si es necesario
 );

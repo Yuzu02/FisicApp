@@ -21,6 +21,12 @@ class Constantes {
     3.14159265359,
   );
 
+  static final Constante constanteCargaElectron = Constante(
+    'Carga del Electron',
+    'e',
+    -1.602176634e-19,
+  );
+
   // ? Para agregar una nueva constante,  se debe definir una constante de tipo Constante con el nombre, el símbolo y el valor de la constante que se desea agregar ( Encima de este comentario )
 
   // * Ejemplo:
