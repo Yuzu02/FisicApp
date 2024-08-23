@@ -489,6 +489,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+  
   movimientoCircular: [
     InstruccionFormula(
       descripcion:
@@ -505,6 +506,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+  
   trabajoEnergia: [
     InstruccionFormula(
       descripcion:
@@ -522,6 +524,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+  
   mru: [
     InstruccionFormula(
       descripcion:
@@ -539,6 +542,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+  
   conversionesLongitud: [
     InstruccionFormula(
       descripcion:
@@ -550,6 +554,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+
   conversionesMasa: [
     InstruccionFormula(
       descripcion:
@@ -561,6 +566,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+
   conversionesTiempo: [
     InstruccionFormula(
       descripcion:
@@ -572,6 +578,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+
   conversionesTemperatura: [
     InstruccionFormula(
       descripcion:
@@ -583,6 +590,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+
   conversionesArea: [
     InstruccionFormula(
       descripcion:
@@ -595,6 +603,7 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+
   conversionesVelocidad: [
     InstruccionFormula(
       descripcion:
@@ -607,5 +616,17 @@ final instrucciones = Instruccion(
       ],
     ),
   ],
+
+  conversionesVolumen: [
+  InstruccionFormula(
+    descripcion:
+        'Para convertir un volumen de litros a mililitros, se multiplica por 1000. Para convertir de mililitros a litros, se divide por 1000.',
+    latexFormula: r'1 L = 1000 mL',
+    explicaciones: [
+      ExplicacionItem(latex: r'1 L', texto: '1 litro'),
+      ExplicacionItem(latex: r'1000 mL', texto: '1000 mililitros'),
+    ],
+  ),
+  ]
   // Otras instrucciones si es necesario
 );
