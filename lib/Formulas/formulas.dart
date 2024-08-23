@@ -388,6 +388,60 @@ final SeccionFormulas seccionGeneral = SeccionFormulas(
         ),
       ],
     ),
+    // Energía Cinética
+    GrupoFormulas(
+      nombre: 'Energía Cinética',
+      instrucciones: instrucciones.energiaCinetica,
+      formulas: [
+        Formula(
+          nombre: 'Energía Cinética',
+          etiqueta: r'E_k = \frac{1}{2} m v^2',
+          expresion: '0.5 * masa * velocidad * velocidad',
+          resultado: 'E_k',
+          variables: ['masa', 'velocidad'],
+          unidades: {'E_k': 'J', 'masa': 'kg', 'velocidad': 'm/s'},
+        ),
+        Formula(
+          nombre: 'Momento',
+          etiqueta: r'p = m v',
+          expresion: 'masa * velocidad',
+          resultado: 'p',
+          variables: ['masa', 'velocidad'],
+          unidades: {'p': 'kg·m/s', 'masa': 'kg', 'velocidad': 'm/s'},
+        ),
+        Formula(
+          nombre: 'Impulso',
+          etiqueta: r'I = F t',
+          expresion: 'fuerza * tiempo',
+          resultado: 'I',
+          variables: ['fuerza', 'tiempo'],
+          unidades: {'I': 'N·s', 'fuerza': 'N', 'tiempo': 's'},
+        ),
+      ],
+    ),
+
+    GrupoFormulas(
+      nombre: 'Ondas',
+      instrucciones: instrucciones.ondas,
+      formulas: [
+        Formula(
+          nombre: 'Periodo',
+          etiqueta: r'T = \frac{1}{f}',
+          expresion: '1 / frecuencia',
+          resultado: 'T',
+          variables: ['frecuencia'],
+          unidades: {'T': 's', 'frecuencia': 'Hz'},
+        ),
+        Formula(
+          nombre: 'Longitud de Onda',
+          etiqueta: r'\lambda = \frac{v}{f}',
+          expresion: 'velocidad / frecuencia',
+          resultado: 'lambda',
+          variables: ['velocidad', 'frecuencia'],
+          unidades: {'lambda': 'm', 'velocidad': 'm/s', 'frecuencia': 'Hz'},
+        ),
+      ],
+    ),
   ],
 );
 
@@ -1213,6 +1267,7 @@ final SeccionFormulas seccionConversiones = SeccionFormulas(
 
   ],
 );
+
 
 //  Lista de secciones de fórmulas
 final List<SeccionFormulas> formulasSections = <SeccionFormulas>[

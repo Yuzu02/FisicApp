@@ -627,6 +627,41 @@ final instrucciones = Instruccion(
       ExplicacionItem(latex: r'1000 mL', texto: '1000 mililitros'),
     ],
   ),
-  ]
+  ],
+
+  energiaCinetica: [
+        InstruccionFormula(
+          descripcion:
+              'La energía cinética se calcula utilizando la masa y la velocidad del objeto. La fórmula es E = 0.5 × masa × velocidad².',
+          latexFormula: r'E_k = \frac{1}{2} m v^2',
+          explicaciones: [
+            ExplicacionItem(latex: r'E_k', texto: 'Energía cinética'),
+            ExplicacionItem(latex: r'm', texto: 'Masa del objeto en kilogramos'),
+            ExplicacionItem(latex: r'v', texto: 'Velocidad del objeto en metros por segundo'),
+          ],
+        ),
+      ],
+  
+  ondas: [
+        InstruccionFormula(
+          descripcion:
+              'El período de una onda se calcula como el inverso de la frecuencia. La fórmula es T = 1 / frecuencia.',
+          latexFormula: r'T = \frac{1}{f}',
+          explicaciones: [
+            ExplicacionItem(latex: r'T', texto: 'Período en segundos'),
+            ExplicacionItem(latex: r'f', texto: 'Frecuencia en Hertz'),
+          ],
+        ),
+        InstruccionFormula(
+          descripcion:
+              'La longitud de onda se calcula dividiendo la velocidad de propagación por la frecuencia. La fórmula es λ = velocidad / frecuencia.',
+          latexFormula: r'\lambda = \frac{v}{f}',
+          explicaciones: [
+            ExplicacionItem(latex: r'\lambda', texto: 'Longitud de onda en metros'),
+            ExplicacionItem(latex: r'v', texto: 'Velocidad de propagación en metros por segundo'),
+            ExplicacionItem(latex: r'f', texto: 'Frecuencia en Hertz'),
+          ],
+        ),
+  ],
   // Otras instrucciones si es necesario
 );

@@ -49,6 +49,8 @@ class Instruccion {
   final List<InstruccionFormula> conversionesArea;
   final List<InstruccionFormula> conversionesVelocidad;
   final List<InstruccionFormula> conversionesVolumen;
+  final List<InstruccionFormula> energiaCinetica;
+  final List<InstruccionFormula> ondas;
 
   // ! Cada vez que se agregue una instrucción nueva para un grupo de formulas se debe agregar un parámetro en el constructor de la clase ( arriba de este comentario ) y asignarle el valor correspondiente , luego ir al archivo instrucciones.dart en la carpeta Formulas y agregar la instrucción correspondiente
 
@@ -82,6 +84,8 @@ class Instruccion {
     required this.conversionesArea,
     required this.conversionesVelocidad,
     required this.conversionesVolumen,
+    required this.energiaCinetica,
+    required this.ondas,
 
     //* Ejemplo
     // required this.nuevaInstruccion,
