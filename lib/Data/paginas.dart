@@ -3,8 +3,12 @@
 // Home Pagina
 class HomePaginaTexto {
   static const String instruccionesTitulo = 'Instrucciones';
-  static const String instruccionesContenido =
-      'Seleccione una categoría y luego una fórmula para calcular.';
+  static const String instruccionesContenido = '''
+Esta aplicación te ayudará a calcular fórmulas de física. Para comenzar, selecciona una categoría de todas las disponibles. Luego, selecciona una fórmula de la lista y llena los campos necesarios. Finalmente, presiona el botón de calcular para obtener el resultado.
+
+Si deseas ver las instrucciones de alguna fórmula, selecciona la fórmula y presiona el botón de instrucciones en la parte superior derecha de la pantalla en el formulario de la fórmula seleccionada.
+''';
+
   static const String cerrarTexto = 'Cerrar';
 }
 
