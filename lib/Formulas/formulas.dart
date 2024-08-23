@@ -59,7 +59,7 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
       ],
     ),
     GrupoFormulas(
-        nombre: "Inercia",
+        nombre: 'Inercia',
         instrucciones: instrucciones.inercia,
         formulas: [
           Formula(
@@ -86,16 +86,14 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
             variables: ['I', 'm'],
             unidades: {'r': 'm', 'I': 'kg*m^2', 'm': 'kg'},
           ),
-        ]
-    ),
+        ]),
     GrupoFormulas(
       nombre: 'Acción y Reacción',
       instrucciones: instrucciones.accionReaccion,
       formulas: [
         Formula(
           nombre: 'Fuerza de Acción',
-          etiqueta:
-              r'\vec{F}_{acción} = -\vec{F}_{reacción}',
+          etiqueta: r'\vec{F}_{acción} = -\vec{F}_{reacción}',
           expresion: '-F_reaccion',
           resultado: 'F_accion',
           variables: ['F_reaccion'],
@@ -109,8 +107,7 @@ final SeccionFormulas seccionNewton = SeccionFormulas(
       formulas: [
         Formula(
           nombre: 'Fuerza Gravitacional',
-          etiqueta:
-              r'\vec{F} = G \cdot \frac{m_1 \cdot m_2}{r^2}',
+          etiqueta: r'\vec{F} = G \cdot \frac{m_1 \cdot m_2}{r^2}',
           expresion: 'G * (m1 * m2) / (r * r)',
           resultado: 'F',
           variables: ['G', 'm1', 'm2', 'r'],
@@ -238,35 +235,34 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
       ],
     ),
     GrupoFormulas(
-      nombre: 'Densidades Electricas', 
-      instrucciones: instrucciones.densidadesElectricas, 
-      formulas: [
-        Formula(
-          nombre: 'Densidad lineal de carga',
-          etiqueta: r'\lambda = \frac{q}{l}',
-          expresion: 'q / l',
-          resultado: 'λ',
-          variables: ['q', 'l'],
-          unidades: {'λ': 'C/m', 'q': 'C', 'l': 'm'},
-        ),
-        Formula(
-          nombre: 'Densidad superficial de carga',
-          etiqueta: r'\sigma = \frac{q}{S}',
-          expresion: 'q / S',
-          resultado: 'σ',
-          variables: ['q', 'S'],
-          unidades: {'σ': 'C/m²', 'q': 'C', 'S': 'm²'},
-        ),
-        Formula(
-          nombre: 'Densidad volumétrica de carga',
-          etiqueta: r'\rho = \frac{q}{V}',
-          expresion: 'q / V',
-          resultado: 'ρ',
-          variables: ['q', 'V'],
-          unidades: {'ρ': 'C/m³', 'q': 'C', 'V': 'm³'},
-        ),
-      ]
-      ),
+        nombre: 'Densidades Electricas',
+        instrucciones: instrucciones.densidadesElectricas,
+        formulas: [
+          Formula(
+            nombre: 'Densidad lineal de carga',
+            etiqueta: r'\lambda = \frac{q}{l}',
+            expresion: 'q / l',
+            resultado: 'λ',
+            variables: ['q', 'l'],
+            unidades: {'λ': 'C/m', 'q': 'C', 'l': 'm'},
+          ),
+          Formula(
+            nombre: 'Densidad superficial de carga',
+            etiqueta: r'\sigma = \frac{q}{S}',
+            expresion: 'q / S',
+            resultado: 'σ',
+            variables: ['q', 'S'],
+            unidades: {'σ': 'C/m²', 'q': 'C', 'S': 'm²'},
+          ),
+          Formula(
+            nombre: 'Densidad volumétrica de carga',
+            etiqueta: r'\rho = \frac{q}{V}',
+            expresion: 'q / V',
+            resultado: 'ρ',
+            variables: ['q', 'V'],
+            unidades: {'ρ': 'C/m³', 'q': 'C', 'V': 'm³'},
+          ),
+        ]),
     GrupoFormulas(
       nombre: 'Campo y Potencial Eléctrico',
       instrucciones: instrucciones.campoPotencialElectrico,
@@ -277,11 +273,7 @@ final SeccionFormulas seccionFisicaElectrica = SeccionFormulas(
           expresion: 'k * Q / (r * r)',
           resultado: 'E',
           variables: ['k', 'Q', 'r'],
-          unidades: {
-            'E': 'N/C', 
-            'k': 'N*m^2/C^2', 
-            'Q': 'C', 
-            'r': 'm'},
+          unidades: {'E': 'N/C', 'k': 'N*m^2/C^2', 'Q': 'C', 'r': 'm'},
           constantes: {
             Constantes.constanteCoulomb.simbolo:
                 Constantes.constanteCoulomb.valor
@@ -364,8 +356,38 @@ final SeccionFormulas seccionGeneral = SeccionFormulas(
         ),
       ],
     ),
+    // Trabajo y Energía
+    GrupoFormulas(
+      nombre: 'Trabajo y Energía',
+      instrucciones: instrucciones.trabajoEnergia,
+      formulas: [
+        Formula(
+          nombre: 'Trabajo',
+          etiqueta: r'W = F \cdot d \cdot \cos(\theta)',
+          expresion: 'F * d * cos(theta)',
+          resultado: 'W',
+          variables: ['F', 'd', 'theta'],
+          unidades: {'W': 'J', 'F': 'N', 'd': 'm', 'theta': 'rad'},
+        ),
+        Formula(
+          nombre: 'Energía Cinética',
+          etiqueta: r'E_c = \frac{1}{2}mv^2',
+          expresion: '0.5 * m * v^2',
+          resultado: 'Ec',
+          variables: ['m', 'v'],
+          unidades: {'Ec': 'J', 'm': 'kg', 'v': 'm/s'},
+        ),
+        Formula(
+          nombre: 'Energía Potencial Gravitatoria',
+          etiqueta: r'E_p = mgh',
+          expresion: 'm * g * h',
+          resultado: 'Ep',
+          variables: ['m', 'g', 'h'],
+          unidades: {'Ep': 'J', 'm': 'kg', 'g': 'm/s²', 'h': 'm'},
+        ),
+      ],
+    ),
   ],
-  
 );
 
 // Sección de Cinemática
@@ -382,7 +404,7 @@ final SeccionFormulas seccionCinematica = SeccionFormulas(
           etiqueta: r'\bar{v} = \frac{\Delta x}{\Delta t}',
           expresion: '(xf - xi) / dt',
           resultado: 'v',
-          variables: ['xi','xf', 'dt'],
+          variables: ['xi', 'xf', 'dt'],
           unidades: {'v': 'm/s', 'xi': 'm', 'xf': 'm', 'dt': 's'},
         ),
         Formula(
@@ -398,7 +420,7 @@ final SeccionFormulas seccionCinematica = SeccionFormulas(
           etiqueta: r'\Delta t = \frac{\Delta x}{\bar{v}}',
           expresion: '(xf - xi) / v',
           resultado: 'dt',
-          variables: ['xi','xf', 'v'],
+          variables: ['xi', 'xf', 'v'],
           unidades: {'dt': 's', 'xi': 'm', 'xf': 'm', 'v': 'm/s'},
         ),
       ],
@@ -414,7 +436,7 @@ final SeccionFormulas seccionCinematica = SeccionFormulas(
           etiqueta: r'\bar{a} = \frac{\Delta v}{\Delta t}',
           expresion: '(vf - vi) / dt',
           resultado: 'a',
-          variables: ['vi','vf', 'dt'],
+          variables: ['vi', 'vf', 'dt'],
           unidades: {'a': 'm/s²', 'vi': 'm/s', 'vf': 'm/s', 'dt': 's'},
         ),
         Formula(
@@ -430,7 +452,7 @@ final SeccionFormulas seccionCinematica = SeccionFormulas(
           etiqueta: r'\Delta t = \frac{\Delta v}{\bar{a}}',
           expresion: '(vf - vi) / a',
           resultado: 'dt',
-          variables: ['vi','vf', 'a'],
+          variables: ['vi', 'vf', 'a'],
           unidades: {'dt': 's', 'vi': 'm/s', 'vf': 'm/s', 'a': 'm/s²'},
         ),
       ],
@@ -470,7 +492,7 @@ final SeccionFormulas seccionCinematica = SeccionFormulas(
       ],
     ),
 
-    //MRUA 
+    //MRUA
     GrupoFormulas(
       nombre: 'Ecuaciones del Movimiento Rectilíneo Uniformemente Acelerado',
       instrucciones: instrucciones.movimientoRectilineo,
@@ -501,7 +523,70 @@ final SeccionFormulas seccionCinematica = SeccionFormulas(
         ),
       ],
     ),
-    
+
+    // Movimiento Circular
+
+    GrupoFormulas(
+      nombre: 'Movimiento Circular',
+      instrucciones: instrucciones.movimientoCircular,
+      formulas: [
+        Formula(
+          nombre: 'Velocidad Angular',
+          etiqueta: r'\omega = \frac{\theta}{t}',
+          expresion: 'theta / t',
+          resultado: 'omega',
+          variables: ['theta', 't'],
+          unidades: {'omega': 'rad/s', 'theta': 'rad', 't': 's'},
+        ),
+        Formula(
+          nombre: 'Ángulo',
+          etiqueta: r'\theta = \omega \cdot t',
+          expresion: 'omega * t',
+          resultado: 'theta',
+          variables: ['omega', 't'],
+          unidades: {'theta': 'rad', 'omega': 'rad/s', 't': 's'},
+        ),
+        Formula(
+          nombre: 'Tiempo',
+          etiqueta: r't = \frac{\theta}{\omega}',
+          expresion: 'theta / omega',
+          resultado: 't',
+          variables: ['theta', 'omega'],
+          unidades: {'t': 's', 'theta': 'rad', 'omega': 'rad/s'},
+        ),
+      ],
+    ),
+    // MRU (Movimiento Rectilíneo Uniforme)
+    GrupoFormulas(
+      nombre: 'Movimiento Rectilíneo Uniforme',
+      instrucciones: instrucciones.mru,
+      formulas: [
+        Formula(
+          nombre: 'Posición',
+          etiqueta: r'x = x_i + v \cdot t',
+          expresion: 'xi + (v * t)',
+          resultado: 'x',
+          variables: ['xi', 'v', 't'],
+          unidades: {'x': 'm', 'xi': 'm', 'v': 'm/s', 't': 's'},
+        ),
+        Formula(
+          nombre: 'Velocidad',
+          etiqueta: r'v = \frac{\Delta x}{\Delta t}',
+          expresion: '(xf - xi) / dt',
+          resultado: 'v',
+          variables: ['xi', 'xf', 'dt'],
+          unidades: {'v': 'm/s', 'xi': 'm', 'xf': 'm', 'dt': 's'},
+        ),
+        Formula(
+          nombre: 'Tiempo',
+          etiqueta: r't = \frac{\Delta x}{v}',
+          expresion: '(xf - xi) / v',
+          resultado: 't',
+          variables: ['xi', 'xf', 'v'],
+          unidades: {'t': 's', 'xi': 'm', 'xf': 'm', 'v': 'm/s'},
+        ),
+      ],
+    ),
   ],
 );
 
@@ -515,7 +600,8 @@ final SeccionFormulas seccionCapacitores = SeccionFormulas(
       formulas: [
         Formula(
           nombre: 'Capacitancia equivalente',
-          etiqueta: r'\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3}',
+          etiqueta:
+              r'\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3}',
           expresion: '1 / C1 + 1 / C2 + 1 / C3',
           resultado: 'Ceq',
           variables: ['C1', 'C2', 'C3'],
@@ -569,47 +655,252 @@ final SeccionFormulas seccionCapacitores = SeccionFormulas(
         ),
       ],
     ),
-    
     GrupoFormulas(
-  nombre: 'Carga en un Capacitor',
-  instrucciones: instrucciones.capacitores, // Asume que hay instrucciones definidas para capacitores
-  formulas: [
-    // Fórmula Principal
-    Formula(
       nombre: 'Carga en un Capacitor',
-      etiqueta: r'Q = C \cdot V',
-      expresion: 'C * V',
-      resultado: 'Q',
-      variables: ['C', 'V'],
-      unidades: {'Q': 'C', 'C': 'F', 'V': 'V'},
-    ),
-    // Despeje para Capacitancia
-    Formula(
-      nombre: 'Capacitancia',
-      etiqueta: r'C = \frac{Q}{V}',
-      expresion: 'Q / V',
-      resultado: 'C',
-      variables: ['Q', 'V'],
-      unidades: {'C': 'F', 'Q': 'C', 'V': 'V'},
-    ),
-    // Despeje para Voltaje
-    Formula(
-      nombre: 'Voltaje',
-      etiqueta: r'V = \frac{Q}{C}',
-      expresion: 'Q / C',
-      resultado: 'V',
-      variables: ['Q', 'C'],
-      unidades: {'V': 'V', 'Q': 'C', 'C': 'F'},
-    ),
-  ],
-)
-
+      instrucciones: instrucciones
+          .capacitores, // Asume que hay instrucciones definidas para capacitores
+      formulas: [
+        // Fórmula Principal
+        Formula(
+          nombre: 'Carga en un Capacitor',
+          etiqueta: r'Q = C \cdot V',
+          expresion: 'C * V',
+          resultado: 'Q',
+          variables: ['C', 'V'],
+          unidades: {'Q': 'C', 'C': 'F', 'V': 'V'},
+        ),
+        // Despeje para Capacitancia
+        Formula(
+          nombre: 'Capacitancia',
+          etiqueta: r'C = \frac{Q}{V}',
+          expresion: 'Q / V',
+          resultado: 'C',
+          variables: ['Q', 'V'],
+          unidades: {'C': 'F', 'Q': 'C', 'V': 'V'},
+        ),
+        // Despeje para Voltaje
+        Formula(
+          nombre: 'Voltaje',
+          etiqueta: r'V = \frac{Q}{C}',
+          expresion: 'Q / C',
+          resultado: 'V',
+          variables: ['Q', 'C'],
+          unidades: {'V': 'V', 'Q': 'C', 'C': 'F'},
+        ),
+      ],
+    )
   ],
 );
 
-
-
-
+final SeccionFormulas seccionConversiones = SeccionFormulas(
+  nombre: 'Conversiones de Unidades',
+  groups: [
+    GrupoFormulas(
+      nombre: 'Longitud',
+      instrucciones: instrucciones.conversionesLongitud,
+      formulas: [
+        Formula(
+          nombre: 'Metro a Kilómetro',
+          etiqueta: r'km = m \div 1000',
+          expresion: 'm / 1000',
+          resultado: 'km',
+          variables: ['m'],
+          unidades: {'km': 'km', 'm': 'm'},
+        ),
+        Formula(
+          nombre: 'Kilómetro a Metro',
+          etiqueta: r'm = km \times 1000',
+          expresion: 'km * 1000',
+          resultado: 'm',
+          variables: ['km'],
+          unidades: {'m': 'm', 'km': 'km'},
+        ),
+      ],
+    ),
+    GrupoFormulas(
+      nombre: 'Masa',
+      instrucciones: instrucciones.conversionesMasa,
+      formulas: [
+        Formula(
+          nombre: 'Gramo a Kilogramo',
+          etiqueta: r'kg = g \div 1000',
+          expresion: 'g / 1000',
+          resultado: 'kg',
+          variables: ['g'],
+          unidades: {'kg': 'kg', 'g': 'g'},
+        ),
+        Formula(
+          nombre: 'Kilogramo a Gramo',
+          etiqueta: r'g = kg \times 1000',
+          expresion: 'kg * 1000',
+          resultado: 'g',
+          variables: ['kg'],
+          unidades: {'g': 'g', 'kg': 'kg'},
+        ),
+      ],
+    ),
+       GrupoFormulas(
+      nombre: 'Tiempo',
+      instrucciones: instrucciones.conversionesTiempo, 
+      formulas: [
+        Formula(
+          nombre: 'Segundos a Minutos',
+          etiqueta: r'min = s \div 60',
+          expresion: 's / 60',
+          resultado: 'min',
+          variables: ['s'],
+          unidades: {'min': 'min', 's': 's'},
+        ),
+        Formula(
+          nombre: 'Minutos a Segundos',
+          etiqueta: r's = min \times 60',
+          expresion: 'min * 60',
+          resultado: 's',
+          variables: ['min'],
+          unidades: {'s': 's', 'min': 'min'},
+        ),
+        Formula(
+          nombre: 'Minutos a Horas',
+          etiqueta: r'h = min \div 60',
+          expresion: 'min / 60',
+          resultado: 'h',
+          variables: ['min'],
+          unidades: {'h': 'h', 'min': 'min'},
+        ),
+        Formula(
+          nombre: 'Horas a Minutos',
+          etiqueta: r'min = h \times 60',
+          expresion: 'h * 60',
+          resultado: 'min',
+          variables: ['h'],
+          unidades: {'min': 'min', 'h': 'h'},
+        ),
+        Formula(
+          nombre: 'Segundos a Horas',
+          etiqueta: r'h = s \div 3600',
+          expresion: 's / 3600',
+          resultado: 'h',
+          variables: ['s'],
+          unidades: {'h': 'h', 's': 's'},
+        ),
+        Formula(
+          nombre: 'Horas a Segundos',
+          etiqueta: r's = h \times 3600',
+          expresion: 'h * 3600',
+          resultado: 's',
+          variables: ['h'],
+          unidades: {'s': 's', 'h': 'h'},
+        ),
+      ],
+    ),
+    GrupoFormulas(
+      nombre: 'Temperatura',
+      instrucciones: instrucciones.conversionesTemperatura, 
+      formulas: [
+        Formula(
+          nombre: 'Celsius a Fahrenheit',
+          etiqueta: r'°F = (°C × 9/5) + 32',
+          expresion: '(C * 9/5) + 32',
+          resultado: 'F',
+          variables: ['C'],
+          unidades: {'F': '°F', 'C': '°C'},
+        ),
+        Formula(
+          nombre: 'Fahrenheit a Celsius',
+          etiqueta: r'°C = (°F - 32) × 5/9',
+          expresion: '(F - 32) * 5/9',
+          resultado: 'C',
+          variables: ['F'],
+          unidades: {'C': '°C', 'F': '°F'},
+        ),
+        Formula(
+          nombre: 'Celsius a Kelvin',
+          etiqueta: r'K = °C + 273.15',
+          expresion: 'C + 273.15',
+          resultado: 'K',
+          variables: ['C'],
+          unidades: {'K': 'K', 'C': '°C'},
+        ),
+        Formula(
+          nombre: 'Kelvin a Celsius',
+          etiqueta: r'°C = K - 273.15',
+          expresion: 'K - 273.15',
+          resultado: 'C',
+          variables: ['K'],
+          unidades: {'C': '°C', 'K': 'K'},
+        ),
+        Formula(
+          nombre: 'Fahrenheit a Kelvin',
+          etiqueta: r'K = (°F + 459.67) × 5/9',
+          expresion: '(F + 459.67) * 5/9',
+          resultado: 'K',
+          variables: ['F'],
+          unidades: {'K': 'K', 'F': '°F'},
+        ),
+        Formula(
+          nombre: 'Kelvin a Fahrenheit',
+          etiqueta: r'°F = K × 9/5 - 459.67',
+          expresion: 'K * 9/5 - 459.67',
+          resultado: 'F',
+          variables: ['K'],
+          unidades: {'F': '°F', 'K': 'K'},
+        ),
+      ],
+    ),
+    GrupoFormulas(
+      nombre: 'Área',
+      instrucciones: instrucciones.conversionesArea,
+      formulas: [
+        Formula(
+          nombre: 'Metros cuadrados a Kilómetros cuadrados',
+          etiqueta: r'km² = m² ÷ 1,000,000',
+          expresion: 'm2 / 1000000',
+          resultado: 'km2',
+          variables: ['m2'],
+          unidades: {'km2': 'km²', 'm2': 'm²'},
+        ),
+        Formula(
+          nombre: 'Metros cuadrados a Hectáreas',
+          etiqueta: r'ha = m² ÷ 10,000',
+          expresion: 'm2 / 10000',
+          resultado: 'ha',
+          variables: ['m2'],
+          unidades: {'ha': 'ha', 'm2': 'm²'},
+        ),
+        Formula(
+          nombre: 'Pies cuadrados a Metros cuadrados',
+          etiqueta: r'm² = ft² × 0.092903',
+          expresion: 'ft2 * 0.092903',
+          resultado: 'm2',
+          variables: ['ft2'],
+          unidades: {'m2': 'm²', 'ft2': 'ft²'},
+        ),
+      ],
+    ),
+    GrupoFormulas(
+      nombre: 'Velocidad',
+      instrucciones: instrucciones.conversionesVelocidad,
+      formulas: [
+        Formula(
+          nombre: 'Kilómetros por hora a Metros por segundo',
+          etiqueta: r'm/s = km/h ÷ 3.6',
+          expresion: 'kmh / 3.6',
+          resultado: 'ms',
+          variables: ['kmh'],
+          unidades: {'ms': 'm/s', 'kmh': 'km/h'},
+        ),
+        Formula(
+          nombre: 'Millas por hora a Kilómetros por hora',
+          etiqueta: r'km/h = mph × 1.60934',
+          expresion: 'mph * 1.60934',
+          resultado: 'kmh',
+          variables: ['mph'],
+          unidades: {'kmh': 'km/h', 'mph': 'mph'},
+        ),
+      ],
+    ),
+  ],
+);
 
 //  Lista de secciones de fórmulas
 final List<SeccionFormulas> formulasSections = <SeccionFormulas>[
@@ -618,5 +909,6 @@ final List<SeccionFormulas> formulasSections = <SeccionFormulas>[
   seccionGeneral,
   seccionCinematica,
   seccionCapacitores,
+  seccionConversiones,
   // ? Si se quiere agregar una nueva sección de fórmulas, se debe agregar un nuevo objeto de tipo SeccionFormulas a esta lista
 ];
