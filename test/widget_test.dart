@@ -5,25 +5,21 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:fisicapp/Vistas/home_pagina.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fisicapp/Vistas/home_pagina.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const HomePagina());
+  testWidgets('Home page smoke test', (WidgetTester tester) async {
+    // Envuelve HomePagina en un MaterialApp para proporcionar el Directionality necesario
+    await tester.pumpWidget(const MaterialApp(home: HomePagina()));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verifica que el título 'FisicApp' esté presente
+    expect(find.text('FisicApp'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Verifica que el texto 'Categorías de Fórmulas' esté presente
+    expect(find.text('Categorías de Fórmulas'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // ? Esta parte es de test de integración
   });
 }
