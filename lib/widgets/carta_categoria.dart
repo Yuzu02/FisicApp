@@ -1,8 +1,6 @@
 // carta_categoria.dart
-
+import 'package:fisicapp/Modelos/widget/carta_categoria_props.dart';
 import 'package:flutter/material.dart';
-
-import '../Modelos/Widget/carta_categoria_props.dart';
 
 class CategoryCard extends StatelessWidget {
   final CategoryCardProps props;

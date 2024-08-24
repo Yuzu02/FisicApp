@@ -1,7 +1,6 @@
 // instructions_dialog.dart
+import 'package:fisicapp/Data/paginas.dart';
 import 'package:flutter/material.dart';
-
-import '../Data/paginas.dart';
 
 class InstructionsDialog extends StatelessWidget {
   const InstructionsDialog({super.key});

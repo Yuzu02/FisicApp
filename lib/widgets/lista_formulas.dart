@@ -1,8 +1,7 @@
 // formula_list_item.dart
+import 'package:fisicapp/Modelos/formula.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
-
-import '../Modelos/formula.dart';
 
 class FormulaListItem extends StatelessWidget {
   final GrupoFormulas group;

@@ -1,7 +1,6 @@
+import 'package:fisicapp/Modelos/unidad.dart';
 
 // ? Aca se definen las unidades que se usaran en las formulas como constantes con sus símbolos y nombres
-
-import '../Modelos/unidad.dart';
 
 class Unidades {
   static final Unidad newton = Unidad('N', 'Newton');

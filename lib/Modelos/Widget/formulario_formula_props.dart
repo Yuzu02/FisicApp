@@ -1,5 +1,4 @@
-
-import '../formula.dart';
+import 'package:fisicapp/Modelos/formula.dart';
 
 class FormularioFormulaProps {
   final GrupoFormulas formulaGroup;

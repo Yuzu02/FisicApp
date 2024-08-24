@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Vistas/home_pagina.dart';
 
-
 class FormulasApp extends StatelessWidget {
   const FormulasApp({super.key});
 

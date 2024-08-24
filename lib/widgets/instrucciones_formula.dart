@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
-
-import '../Modelos/instrucciones_formula.dart';
+import 'package:fisicapp/Modelos/instrucciones_formula.dart';
 
 class InstruccionesWidget extends StatelessWidget {
   final List<InstruccionFormula> instrucciones;

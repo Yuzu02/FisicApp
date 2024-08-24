@@ -1,9 +1,8 @@
+import 'package:fisicapp/Modelos/instrucciones_formula.dart';
 
 // * Instrucciones de las fórmulas
 
 // ? Aca se agregan las instrucciones de las fórmulas que se desean mostrar en la aplicación , luego para usar dichas instrucciones se añaden en formulas.dart en el grupo de fórmulas correspondiente
-import '../Modelos/instrucciones_formula.dart';
-
 final instrucciones = Instruccion(
   segundaLeyNewton: [
     InstruccionFormula(
