@@ -1,12 +1,14 @@
 // lib/Vistas/home_pagina.dart
 
-import 'package:fisicapp/Data/Extra/iconos.dart';
-import 'package:fisicapp/Formulas/formulas.dart';
-import 'package:fisicapp/Modelos/widget/carta_categoria_props.dart';
-import 'package:fisicapp/Widgets/acerca_equipo.dart';
-import 'package:fisicapp/Widgets/carta_categoria.dart';
-import 'package:fisicapp/Widgets/instrucciones_generales.dart';
+
+
 import 'package:flutter/material.dart';
+import '../Data/Extra/iconos.dart';
+import '../Formulas/formulas.dart';
+import '../Modelos/Widget/carta_categoria_props.dart';
+import '../Widgets/acerca_equipo.dart';
+import '../Widgets/carta_categoria.dart';
+import '../Widgets/instrucciones_generales.dart';
 import 'formulas_pagina.dart';
 
 class HomePagina extends StatelessWidget {

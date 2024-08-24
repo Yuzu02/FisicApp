@@ -1,6 +1,3 @@
-import 'package:fisicapp/Formulas/instrucciones.dart';
-import 'package:fisicapp/Modelos/formula.dart';
-import 'package:fisicapp/Formulas/constantes.dart';
 
 // * Sección de Fórmulas
 
@@ -19,6 +16,10 @@ import 'package:fisicapp/Formulas/constantes.dart';
 // Todo : Luego de agregar un nuevo grupo de formulas , revisar los modelos de instrucciones en Modelos/instrucciones_formula.dart y agregar las instrucciones correspondientes al nuevo grupo de fórmulas siguiendo los pasos en el archivo de instrucciones_formula.dart y luego yendo a Formulas/instrucciones.dart y agregando las instrucciones al objeto instrucciones en instrucciones.dart para luego volver a este archivo y agregar las instrucciones al grupo de fórmulas correspondiente
 
 // Sección de Newton
+import '../Modelos/formula.dart';
+import 'constantes.dart';
+import 'instrucciones.dart';
+
 final SeccionFormulas seccionNewton = SeccionFormulas(
   nombre: 'Leyes de Newton',
   groups: [

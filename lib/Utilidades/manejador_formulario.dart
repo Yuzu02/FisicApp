@@ -1,6 +1,9 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:fisicapp/Modelos/formula.dart';
-import 'package:fisicapp/Utilidades/calculadora_formula.dart';
+
+import '../Modelos/formula.dart';
+import 'calculadora_formula.dart';
 
 class ManejadorFormulario {
   final CalculadoraFormula _calculator = CalculadoraFormula();

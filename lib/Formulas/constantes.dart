@@ -1,6 +1,8 @@
-import 'package:fisicapp/Modelos/constantes.dart';
+
 
 // ? Aca se definen las constantes que se usaran en las formulas como constantes con sus nombres, símbolos y valores
+
+import '../Modelos/constantes.dart';
 
 class Constantes {
   static final Constante constanteCoulomb = Constante(

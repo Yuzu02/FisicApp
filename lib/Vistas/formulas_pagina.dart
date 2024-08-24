@@ -1,10 +1,12 @@
 // formulas_pagina.dart
-import 'package:fisicapp/Data/paginas.dart';
-import 'package:fisicapp/Formulas/formulas.dart';
-import 'package:fisicapp/Modelos/formula.dart';
-import 'package:fisicapp/Vistas/formula_detallada_pagina.dart';
-import 'package:fisicapp/Widgets/lista_formulas.dart';
+
 import 'package:flutter/material.dart';
+
+import '../Data/paginas.dart';
+import '../Formulas/formulas.dart';
+import '../Modelos/formula.dart';
+import '../Widgets/lista_formulas.dart';
+import 'formula_detallada_pagina.dart';
 
 class FormulasPagina extends StatelessWidget {
   final String category;

@@ -1,11 +1,14 @@
 // lib/Vistas/formula_detallada_pagina.dart
 
-import 'package:fisicapp/Data/paginas.dart';
-import 'package:fisicapp/Modelos/Widget/formulario_formula_props.dart';
-import 'package:fisicapp/Widgets/formulario_formula.dart';
-import 'package:fisicapp/Widgets/instrucciones_formula.dart';
+
+
 import 'package:flutter/material.dart';
-import 'package:fisicapp/Modelos/formula.dart';
+
+import '../Data/paginas.dart';
+import '../Modelos/Widget/formulario_formula_props.dart';
+import '../Modelos/formula.dart';
+import '../Widgets/formulario_formula.dart';
+import '../Widgets/instrucciones_formula.dart';
 
 class FormulaDetalladaPagina extends StatelessWidget {
   final GrupoFormulas formulaGroup;

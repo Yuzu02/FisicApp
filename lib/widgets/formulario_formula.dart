@@ -1,9 +1,10 @@
-import 'package:fisicapp/Data/paginas.dart';
-import 'package:fisicapp/Modelos/Widget/formulario_formula_props.dart';
-import 'package:fisicapp/Modelos/formula.dart';
-import 'package:fisicapp/Utilidades/manejador_formulario.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
+
+import '../Data/paginas.dart';
+import '../Modelos/Widget/formulario_formula_props.dart';
+import '../Modelos/formula.dart';
+import '../Utilidades/manejador_formulario.dart';
 
 class FormularioFormula extends StatefulWidget {
   final FormularioFormulaProps props;
