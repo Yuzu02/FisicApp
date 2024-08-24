@@ -29,6 +29,12 @@ class AcercaEquipo extends StatelessWidget {
                   nombre: 'Julio Antonio Solís', matricula: '22-SISN-2-027'),
               EstudianteInfo(
                   nombre: 'Yoselin Pérez Padilla', matricula: '22-SISN-2-001'),
+              EstudianteInfo(
+                nombre: 'Kimberly Esther Peguero',
+                matricula: '22-SISN-2-035',
+              ),
+              EstudianteInfo(
+                  nombre: 'Juan Esteban Olivares', matricula: '22-MISN-2-027'),
             ],
           ),
         ),
